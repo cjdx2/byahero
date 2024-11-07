@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BiyaHero.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             x:Class="BiyaHero.LoginPage" 
+             Title="">
+    <VerticalStackLayout
+        Background="#13a073"
+        Padding="30">
+        <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0" />
+
+        <!-- Input Field for Email -->
+        <Frame HasShadow="False"   
+               BorderColor="Transparent"
+               CornerRadius="10" 
+               Padding="5" 
+               Margin="0,20,0,5"
+               HeightRequest="50">
+            <HorizontalStackLayout
+                Margin="10,0,0,0">
+            <Image Source="logo_mail.png" Grid.Column="0" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+            
+            <Entry Placeholder="Enter your email" 
+                   Margin="10,0,0,0"
+                   x:Name="EmailEntry" 
+                   WidthRequest="250" />
+            </HorizontalStackLayout>
+        </Frame>
+        <!-- Input Field for Password -->
+        <Frame HasShadow="False"   
+       BorderColor="Transparent"
+        HeightRequest="50"
+       CornerRadius="10" 
+       Padding="5" 
+        Margin="0,0,0,20">
+            <HorizontalStackLayout
+        Margin="10,0,10,0">
+                <Image Source="logo_lock.png" Grid.Column="0" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+
+                <Entry Placeholder="Enter your password" 
+       Margin="10,0,0,0"
+       x:Name="PasswordEntry" 
+       WidthRequest="250" 
+       IsPassword="True" />
+            </HorizontalStackLayout>
+        </Frame>
+
+        
+
+        <!-- Button to Login -->
+        <Button Text="LOGIN" 
+                 Margin="0,10,0,20"
+        HorizontalOptions="Fill"   
+        FontAttributes="Bold"
+        BackgroundColor="#0c7151"
+                CornerRadius="10"
+        />
+        
+        <!-- Button to SignUp -->
+        <HorizontalStackLayout
+           Margin="0,10,0,20"
+           HorizontalOptions="Center" >
+            <Label
+                Margin="0,0,5,0"
+            VerticalTextAlignment="Center" 
+                TextColor="#084934"
+                >Don't have an account?</Label>
+            <Button Text="Register now!" 
+           FontAttributes="Bold"
+           Padding="0"
+           Background="Transparent"
+           Clicked="OnRegisterButtonClicked"
+        />
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </ContentPage>
