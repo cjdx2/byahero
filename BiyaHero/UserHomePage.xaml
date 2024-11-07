@@ -4,9 +4,14 @@
              x:Class="BiyaHero.UserHomePage"
              Title="UserHomePage">
     <VerticalStackLayout>
-        <Label 
-            Text="Register Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <!-- Header -->
+        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
+            <!-- Navigation Bar -->
+            <Image Source="icon_navigationbtn.png" Margin="0,0,0,0" HeightRequest="22"/>
+            <!-- Logo --><Image Source="logo_biyahero_word.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="22"/>
+            <!-- Profile --><Image Source="icon_profilebtn.png" Margin="0,0,0,0" HeightRequest="30"/>
+        </StackLayout>
+        <Label Text="map here" />
+        
     </VerticalStackLayout>
 </ContentPage>

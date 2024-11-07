@@ -57,6 +57,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\icon_navigationbtn.png" />
+	  <None Remove="Resources\Images\icon_profilebtn.png" />
 	  <None Remove="Resources\Images\logo_biyahero_full.png" />
 	  <None Remove="Resources\Images\logo_biyahero_round.png" />
 	  <None Remove="Resources\Images\logo_biyahero_word.png" />
@@ -66,6 +68,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="FirebaseAdmin" Version="3.0.1" />
+		<PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />

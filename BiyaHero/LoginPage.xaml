@@ -44,14 +44,13 @@
             </HorizontalStackLayout>
         </Frame>
 
-        
-
         <!-- Button to Login -->
         <Button Text="LOGIN" 
                  Margin="0,10,0,20"
         HorizontalOptions="Fill"   
         FontAttributes="Bold"
         BackgroundColor="#0c7151"
+                Clicked="OnLoginButtonClicked"
                 CornerRadius="10"
         />
         

@@ -60,6 +60,7 @@
             Visual="None"
             BackgroundColor="Transparent" />
         </Frame>
+
         <!-- Input Field for Password -->
         <Frame HasShadow="False"   
             BorderColor="LightGray"

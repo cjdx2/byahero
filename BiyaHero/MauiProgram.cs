@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Graphics;
+using Firebase.Database;
+using FirebaseAdmin;
 
 namespace BiyaHero
 {
