@@ -11,7 +11,7 @@
             MainPage = new NavigationPage(new LoginPage())
             {
                 // These properties work with NavigationPage in MAUI
-                BarBackgroundColor = Color.FromHex("#13a073"),  // Transparent background for navigation bar
+                BarBackgroundColor = Color.FromArgb("#13a073"),  // Transparent background for navigation bar
                 BarTextColor = Colors.White,       // Transparent text color for navigation items
                             };
 
