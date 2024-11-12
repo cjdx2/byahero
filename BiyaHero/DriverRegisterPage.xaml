@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverRegisterPage">
+
+    <!-- Wrap the entire layout in a ScrollView -->
+    <ScrollView Padding="20">
+        <VerticalStackLayout>
+            <Label Text="Create a Driver Account"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"
+                   />
+
+            <!-- Input Field for Username -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,10,0,5">
+                <Entry Placeholder="Username" 
+                       x:Name="UsernameEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"/>
+            </Frame>
+
+            <!-- Input Field for First Name -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="First Name" 
+                       x:Name="FnameEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" />
+            </Frame>
+
+            <!-- Input Field for Last Name -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="Last Name" 
+                       x:Name="LnameEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" />
+            </Frame>
+
+            <!-- Input Field for Vehicle Type -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="Vehicle Type" 
+                       x:Name="VehicleTypeEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" />
+            </Frame>
+
+            <!-- Input Field for Vehicle Plate Number -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="Vehicle Plate Number" 
+                       x:Name="VehiclePlateNumberEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" />
+            </Frame>
+
+            <!-- Input Field for Email -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="Email" 
+                       x:Name="EmailEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" />
+            </Frame>
+
+            <!-- Input Field for Password -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,5">
+                <Entry Placeholder="Password" 
+                       x:Name="PasswordEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" 
+                       IsPassword="True"/>
+            </Frame>
+
+            <!-- Input Field for Confirm Password -->
+            <Frame HasShadow="False"   
+                   BorderColor="LightGray"
+                   CornerRadius="10" 
+                   Padding="5" 
+                   Margin="0,5,0,30">
+                <Entry Placeholder="Confirm Password" 
+                       x:Name="CPasswordEntry" 
+                       HorizontalOptions="Fill"
+                       HeightRequest="30"
+                       Visual="None"
+                       BackgroundColor="Transparent" 
+                       IsPassword="True"/>
+            </Frame>
+
+            <!-- Terms and Conditions Checkbox -->
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                <CheckBox x:Name="AgreeCheckBox" 
+                          Color="#13a073"
+                          IsChecked="False" />
+                <Label Text="I agree to the terms and conditions."
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!-- Sign Up Button -->
+            <Button Text="Register as Driver"
+                    Margin="0,10,0,20"
+                    HorizontalOptions="Fill"
+                    FontAttributes="Bold"
+                    BackgroundColor="#13a073"
+                    CornerRadius="10"
+                    Clicked="OnRegisterButtonClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
