@@ -56,7 +56,13 @@
                         Padding="20"
                         >
                 <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
-                <Label Text="Driver Accounts Management" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverAccountsClicked}}" />
+                <Label Text="Driver Accounts Management"
+                   FontAttributes="Bold"
+                    Padding="10">
+                    <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="User Accounts Management" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnUserAccountsClicked}}" />
                 <Label Text="Driver Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
 

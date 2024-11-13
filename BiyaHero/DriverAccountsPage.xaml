@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverAccountsPage"
+             Title="Driver Accounts Management"
+             BackgroundColor="#13a073">
+
+    <VerticalStackLayout Padding="20">
+        <Label Text="Driver Accounts Management"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               TextColor="#084934" />
+
+        <!-- Add your driver accounts management UI elements here -->
+        <Label Text="Manage driver accounts here."
+               FontSize="18"
+               HorizontalTextAlignment="Center"
+               TextColor="#084934" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -26,8 +26,7 @@ namespace BiyaHero
 
         private async void OnDriverAccountsClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Driver Accounts", "Viewing driver accounts.", "OK");
-            // Logic for navigating to Driver Accounts Management content can go here
+            await Navigation.PushAsync(new DriverAccountsPage()); // Navigate to DriverAccountsPage
         }
 
         private async void OnUserAccountsClicked(object sender, EventArgs e)
