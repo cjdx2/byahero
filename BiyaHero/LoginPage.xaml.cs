@@ -25,6 +25,14 @@ public partial class LoginPage : ContentPage
             return;
         }
 
+        // Check if the email and password match the admin credentials
+        if (email == "byahero2024@gmail.com" && password == "By@Her0")
+        {
+            await DisplayAlert("Admin Login", "Welcome, Admin!", "OK");
+            await Navigation.PushAsync(new AdminHomePage()); // Navigate to AdminHomePage
+            return;
+        }
+
         var user = await _databaseService.GetUserByEmailAsync(email);
 
         if (user == null)
@@ -34,7 +42,7 @@ public partial class LoginPage : ContentPage
         else if (user.Password == password)
         {
             await DisplayAlert("Success", "Login successful!", "OK");
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage()); // Navigate to MainPage
         }
         else
         {
