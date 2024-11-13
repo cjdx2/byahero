@@ -26,9 +26,16 @@ namespace BiyaHero.Services
         {
             return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
         }
+
         public Task<int> AddDriverAsync(Driver driver)
         {
             return _database.InsertAsync(driver);
+        }
+
+        // Fetch all drivers
+        public Task<List<Driver>> GetAllDriversAsync()
+        {
+            return _database.Table<Driver>().ToListAsync();
         }
 
         // Get a driver by email
@@ -36,6 +43,17 @@ namespace BiyaHero.Services
         {
             return _database.Table<Driver>().Where(d => d.Email == email).FirstOrDefaultAsync();
         }
+
+        // Delete a driver
+        public Task<int> DeleteDriverAsync(Driver driver)
+        {
+            return _database.DeleteAsync(driver);
+        }
+
+        // Update driver details
+        public Task<int> UpdateDriverAsync(Driver driver)
+        {
+            return _database.UpdateAsync(driver);
+        }
     }
 }
-

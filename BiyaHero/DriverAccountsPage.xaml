@@ -12,10 +12,35 @@
                HorizontalTextAlignment="Center"
                TextColor="#084934" />
 
-        <!-- Add your driver accounts management UI elements here -->
         <Label Text="Manage driver accounts here."
                FontSize="18"
                HorizontalTextAlignment="Center"
                TextColor="#084934" />
+
+        <!-- ListView to display driver accounts with detailed information -->
+        <ListView x:Name="DriverListView"
+                  ItemSelected="OnDriverSelected"
+                  SeparatorColor="#084934"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="5">
+                            <Label Text="{Binding Username}" FontAttributes="Bold" TextColor="#084934" />
+                            <Label Text="{Binding FirstName}" TextColor="#084934" />
+                            <Label Text="{Binding LastName}" TextColor="#084934" />
+                            <Label Text="{Binding VehicleType}" TextColor="#084934" />
+                            <Label Text="{Binding VehiclePlateNumber}" TextColor="#084934" />
+                            <Label Text="{Binding Email}" TextColor="#084934" />
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="#084934" />
+
+                            <!-- Edit and Delete buttons for each driver -->
+                            <Button Text="Edit" Clicked="OnEditDriverClicked" HorizontalOptions="Start" />
+                            <Button Text="Delete" Clicked="OnDeleteDriverClicked" HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>
