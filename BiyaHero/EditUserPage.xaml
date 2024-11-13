@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.EditUserPage"
+             BackgroundColor="#13a073">
+
+    <StackLayout Padding="20">
+        <Label Text="Edit User" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#084934" />
+
+        <!-- User details for editing -->
+        <Entry x:Name="UsernameEntry" Placeholder="Username" />
+        <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
+        <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
+
+        <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="#084934" TextColor="White" />
+    </StackLayout>
+</ContentPage>

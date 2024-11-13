@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.UserAccountsPage"
+             Title="User Accounts Management"
+             BackgroundColor="#13a073">
+
+    <!-- Wrapping everything in a ScrollView -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+
+            <Label Text="User Accounts Management"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#084934" />
+
+            <Label Text="Manage user accounts here."
+                   FontSize="18"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#084934" />
+
+            <!-- ListView to display user accounts with detailed information -->
+            <ListView x:Name="UserListView"
+                      ItemSelected="OnUserSelected"
+                      SeparatorColor="#084934"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding Username}" FontAttributes="Bold" TextColor="#084934" />
+                                <Label Text="{Binding FirstName}" TextColor="#084934" />
+                                <Label Text="{Binding LastName}" TextColor="#084934" />
+                                <Label Text="{Binding Email}" TextColor="#084934" />
+                                <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="#084934" />
+
+                                <!-- Edit and Delete buttons for each user -->
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Button Text="Edit" 
+                                            Clicked="OnEditUserClicked" 
+                                            CommandParameter="{Binding .}" 
+                                            HorizontalOptions="Start" />
+
+                                    <Button Text="Delete" 
+                                            Clicked="OnDeleteUserClicked" 
+                                            CommandParameter="{Binding .}" 
+                                            HorizontalOptions="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

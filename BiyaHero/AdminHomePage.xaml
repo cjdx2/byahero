@@ -63,7 +63,12 @@
                     <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="User Accounts Management" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnUserAccountsClicked}}" />
+                <Label Text="User Accounts Management" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
+                        <!-- Directly bind to the method -->
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="Driver Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
 
                 <!-- Close button to hide menu -->

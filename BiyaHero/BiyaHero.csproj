@@ -82,6 +82,12 @@
 	  <Compile Update="EditDriverPage.xaml.cs">
 	    <DependentUpon>EditDriverPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="EditUserPage.xaml.cs">
+	    <DependentUpon>EditUserPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UserAccountsPage.xaml.cs">
+	    <DependentUpon>UserAccountsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UserHomePage.xaml.cs">
 	    <DependentUpon>UserHomePage.xaml</DependentUpon>
 	  </Compile>
@@ -98,6 +104,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="EditDriverPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="EditUserPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UserAccountsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UserHomePage.xaml">

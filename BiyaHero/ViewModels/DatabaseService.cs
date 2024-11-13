@@ -17,6 +17,11 @@ namespace BiyaHero.Services
             _database.CreateTableAsync<Driver>().Wait();
         }
 
+        public Task<List<User>> GetAllUsersAsync()
+        {
+            return _database.Table<User>().ToListAsync();
+        }
+
         public Task<int> AddUserAsync(User user)
         {
             return _database.InsertAsync(user);
@@ -27,6 +32,15 @@ namespace BiyaHero.Services
             return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
         }
 
+        public Task<int> DeleteUserAsync(User user)
+        {
+            return _database.DeleteAsync(user);
+        }
+
+        public Task<int> UpdateUserAsync(User user)
+        {
+            return _database.UpdateAsync(user);
+        }
         public Task<int> AddDriverAsync(Driver driver)
         {
             return _database.InsertAsync(driver);

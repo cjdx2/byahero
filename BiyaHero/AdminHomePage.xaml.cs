@@ -31,8 +31,7 @@ namespace BiyaHero
 
         private async void OnUserAccountsClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("User Accounts", "Viewing user accounts.", "OK");
-            // Logic for navigating to User Accounts Management content can go here
+            await Navigation.PushAsync(new UserAccountsPage()); // Navigate to UserAccountsPage
         }
 
         private async void OnDriverHistoryClicked(object sender, EventArgs e)
