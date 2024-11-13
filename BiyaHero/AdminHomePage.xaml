@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.AdminHomePage"
+             BackgroundColor="#13a073">
+
+    <!-- Main Layout -->
+    <AbsoluteLayout>
+
+        <!-- Content Grid Layout -->
+        <Grid RowDefinitions="Auto,*,Auto"
+              ColumnDefinitions="*,*"
+              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+              AbsoluteLayout.LayoutFlags="All">
+            <!-- Main Content Area -->
+            <StackLayout Padding="20" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill">
+
+                <!-- Page Title -->
+                <Label Text="Admin Homepage"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       Padding="10"
+                       TextColor="#084934"/>
+
+                <!-- Content display area for various sections -->
+                <StackLayout x:Name="ContentArea" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Padding="10">
+                    <Label Text="Welcome, Admin! Choose a section from the sidebar."
+                           FontSize="18"
+                           HorizontalTextAlignment="Center"
+                           Padding="10"
+                           TextColor="#084934" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+
+        <Button Text="☰"
+                BackgroundColor="Transparent"
+                FontSize="20"
+                TextColor="White"
+                FontAttributes="Bold"
+                AbsoluteLayout.LayoutBounds="0.05, 0.05, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="OnMenuClicked" />
+
+        <!-- Popup Menu Overlay -->
+        <Frame x:Name="MenuPopup"
+        IsVisible="False"
+        BackgroundColor="#80000000"
+        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+        AbsoluteLayout.LayoutFlags="All"
+        Padding="20">
+
+        <!-- Popup Content (stacked menu items) -->
+        <StackLayout BackgroundColor="White"
+                        Padding="20"
+                        >
+                <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
+                <Label Text="Driver Accounts Management" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverAccountsClicked}}" />
+                <Label Text="User Accounts Management" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnUserAccountsClicked}}" />
+                <Label Text="Driver Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
+
+                <!-- Close button to hide menu -->
+                <Button Text="Close" Clicked="OnCloseMenuClicked" BackgroundColor="#13a073" TextColor="White"/>
+        </StackLayout>
+        </Frame>
+    </AbsoluteLayout>
+</ContentPage>
