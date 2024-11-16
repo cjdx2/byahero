@@ -1,79 +1,74 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.AdminHomePage"
              BackgroundColor="#13a073">
 
-    <!-- Main Layout -->
-    <AbsoluteLayout>
-
-        <!-- Content Grid Layout -->
-        <Grid RowDefinitions="Auto,*,Auto"
-              ColumnDefinitions="*,*"
-              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-              AbsoluteLayout.LayoutFlags="All">
-            <!-- Main Content Area -->
-            <StackLayout Padding="20" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill">
-
-                <!-- Page Title -->
-                <Label Text="Admin Homepage"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       Padding="10"
-                       TextColor="#084934"/>
-
-                <!-- Content display area for various sections -->
-                <StackLayout x:Name="ContentArea" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Padding="10">
-                    <Label Text="Welcome, Admin! Choose a section from the sidebar."
-                           FontSize="18"
-                           HorizontalTextAlignment="Center"
-                           Padding="10"
-                           TextColor="#084934" />
-                </StackLayout>
-            </StackLayout>
-        </Grid>
+    <Grid Padding="0" VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <Button Text="☰"
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
                 BackgroundColor="Transparent"
                 FontSize="20"
                 TextColor="White"
                 FontAttributes="Bold"
-                AbsoluteLayout.LayoutBounds="0.05, 0.05, AutoSize, AutoSize"
-                AbsoluteLayout.LayoutFlags="PositionProportional"
-                Clicked="OnMenuClicked" />
+                Margin="10"
+                Clicked="OnMenuClicked"/>
 
-        <!-- Popup Menu Overlay -->
+        <Grid Grid.Row="1"
+              VerticalOptions="Center"
+              HorizontalOptions="Center"
+              Padding="20"
+              BackgroundColor="Transparent">
+            <StackLayout x:Name="ContentArea"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         BackgroundColor="Transparent"
+                         Padding="10">
+                <Label Text="Welcome, Admin! Choose a section from the sidebar."
+                       FontSize="Medium"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Padding="10"
+                       TextColor="#084934"
+                       Margin="0,0,20,150"/>
+            </StackLayout>
+        </Grid>
+
         <Frame x:Name="MenuPopup"
-        IsVisible="False"
-        BackgroundColor="#80000000"
-        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-        AbsoluteLayout.LayoutFlags="All"
-        Padding="20">
-
-        <!-- Popup Content (stacked menu items) -->
-        <StackLayout BackgroundColor="White"
-                        Padding="20"
-                        >
+               IsVisible="False"
+               BackgroundColor="#80000000"
+               Grid.RowSpan="2"
+               HorizontalOptions="Start"
+               HeightRequest="280" WidthRequest="180"
+               Margin="20,0,0,150">
+            <StackLayout>
                 <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
-                <Label Text="Driver Accounts Management"
-                   FontAttributes="Bold"
-                    Padding="10">
+                <Label Text="Driver Accounts" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
+                        <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="User Accounts Management" FontAttributes="Bold" Padding="10">
+                <Label Text="User Accounts" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
-                        <!-- Directly bind to the method -->
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Driver Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
-
-                <!-- Close button to hide menu -->
-                <Button Text="Close" Clicked="OnCloseMenuClicked" BackgroundColor="#13a073" TextColor="White"/>
-        </StackLayout>
+                <Label Text="Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
+                <Button Text="Close" 
+                    Clicked="OnCloseMenuClicked" 
+                    BackgroundColor="#8C13A073" 
+                    TextColor="White" 
+                    HeightRequest="30" 
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Margin="0,20,0,0"/>
+            </StackLayout>
         </Frame>
-    </AbsoluteLayout>
+    </Grid>
 </ContentPage>
