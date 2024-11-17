@@ -38,5 +38,10 @@ namespace BiyaHero
         {
             await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
         }
+
+        private async void OnAddDriverClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverRegisterPage());
+        }
     }
 }

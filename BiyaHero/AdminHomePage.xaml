@@ -37,6 +37,14 @@
                        Padding="10"
                        TextColor="#084934"
                        Margin="0,0,20,150"/>
+                       
+                <Button Text="Add Driver"
+                        Clicked="OnAddDriverClicked"
+                        BackgroundColor="#084934"
+                        TextColor="White"
+                        FontSize="14"
+                        WidthRequest="150"
+                        Margin="0,20,0,0"/>
             </StackLayout>
         </Grid>
 

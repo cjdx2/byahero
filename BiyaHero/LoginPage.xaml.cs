@@ -54,9 +54,4 @@ public partial class LoginPage : ContentPage
     {
         await Navigation.PushAsync(new RegisterPage());
     }
-
-    private async void OnDriverRegisterButtonClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new DriverRegisterPage());
-    }
 }
