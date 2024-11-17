@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.UserHomePage"
-             Title="UserHomePage">
+             Title="UserHomePage"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps">
     <Grid>
         <!-- Define rows for Header, Content, and Footer -->
         <Grid.RowDefinitions>
@@ -39,7 +40,7 @@
 
         <!-- Content Section -->
         <StackLayout Grid.Row="1" Padding="10">
-            <Label Text="MAP HERE AAA" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            <maps:Map x:Name="map" />
             <!-- Add your map or other content here -->
         </StackLayout>
 
