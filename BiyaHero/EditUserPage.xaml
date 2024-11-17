@@ -4,15 +4,38 @@
              x:Class="BiyaHero.EditUserPage"
              BackgroundColor="#13a073">
 
-    <StackLayout Padding="20">
-        <Label Text="Edit User" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#084934" />
+    <ScrollView Padding="20">
+        <StackLayout Spacing="15">
+            <Entry x:Name="UsernameEntry" 
+                   Placeholder="Username" 
+                   BackgroundColor="White" 
+                   TextColor="Black" />
 
-        <!-- User details for editing -->
-        <Entry x:Name="UsernameEntry" Placeholder="Username" />
-        <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
-        <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
-        <Entry x:Name="EmailEntry" Placeholder="Email" />
+            <Entry x:Name="FirstNameEntry" 
+                   Placeholder="First Name" 
+                   BackgroundColor="White" 
+                   TextColor="Black" />
 
-        <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="#084934" TextColor="White" />
-    </StackLayout>
+            <Entry x:Name="LastNameEntry" 
+                   Placeholder="Last Name" 
+                   BackgroundColor="White" 
+                   TextColor="Black" />
+
+            <Entry x:Name="EmailEntry" 
+                   Placeholder="Email" 
+                   BackgroundColor="White" 
+                   TextColor="Black" />
+
+            <Button Text="Save Changes" 
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#084934"
+                    TextColor="White" />
+
+            <Button Text="Cancel" 
+                    Clicked="OnCancelClicked"
+                    BackgroundColor="#FFBB2E2E"
+                    TextColor="White" />
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

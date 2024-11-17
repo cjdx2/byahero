@@ -24,47 +24,75 @@ namespace BiyaHero
         // Edit user action (navigate to EditUserPage or open a dialog)
         private async void OnEditUserClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender; // Cast sender to Button
-            var user = button.CommandParameter as User; // Get the user from CommandParameter
-            if (user != null)
+            var button = sender as Button;
+            var selectedUser = button?.BindingContext as User;
+
+            if (selectedUser != null)
             {
                 // Navigate to edit page, passing the user data
-                await Navigation.PushAsync(new EditUserPage(user));
+                var editPage = new EditUserPage(selectedUser);
+                await Navigation.PushAsync(editPage);
             }
         }
 
         // Delete user action
         private async void OnDeleteUserClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender; // Cast sender to Button
-            var user = button.CommandParameter as User; // Get the user from CommandParameter
-            if (user != null)
+            var button = sender as Button;
+            var selectedUser = button?.BindingContext as User;
+
+            if (selectedUser != null)
             {
                 var result = await DisplayAlert("Delete User", "Are you sure you want to delete this user?", "Yes", "No");
                 if (result)
                 {
-                    await _databaseService.DeleteUserAsync(user);
+                    await _databaseService.DeleteUserAsync(selectedUser);
                     LoadUserAccounts(); // Reload the users after deletion
                 }
             }
         }
 
         // Event handler for when a user is selected in the ListView
-        private async void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null)
-                return; // Exit if no item is selected
-
-            var selectedUser = e.SelectedItem as User;
-
-            if (selectedUser != null)
+            if (e.SelectedItem != null)
             {
-                // Navigate to the EditUserPage with the selected user
-                await Navigation.PushAsync(new EditUserPage(selectedUser));
+                var selectedUser = e.SelectedItem as User;
+                // Handle selection if needed (e.g., navigate to details)
             }
+        }
 
-            // Deselect the item after navigating
-            UserListView.SelectedItem = null;
+        // Show the menu popup
+        private void OnMenuClicked(object sender, EventArgs e)
+        {
+            MenuPopup.IsVisible = true;
+        }
+
+        // Hide the menu popup
+        private void OnCloseMenuClicked(object sender, EventArgs e)
+        {
+            MenuPopup.IsVisible = false;
+        }
+
+        // Handle navigation or actions for each menu item
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminHomePage());
+        }
+
+        private async void OnDriverAccountsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverAccountsPage());
+        }
+
+        private async void OnUserAccountsClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("User Accounts Management displayed", "You are currently viewing User Accounts", "Close");
+        }
+
+        private async void OnDriverHistoryClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("User Ride History", "Viewing user ride history.", "OK");
         }
     }
 }
