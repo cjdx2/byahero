@@ -44,16 +44,5 @@
                     Background="Transparent"
                     Clicked="OnRegisterButtonClicked"/>
         </HorizontalStackLayout>
-
-        <!-- Link to Register as Driver Page -->
-        <HorizontalStackLayout Margin="0,0,0,20" HorizontalOptions="Center">
-            <Label Margin="0,0,0,0" VerticalTextAlignment="Center" TextColor="#084934">Register as Driver</Label>
-            <Button Text="here" 
-                    FontAttributes="Bold"
-                    Padding="0"
-                    Background="Transparent"
-                    Clicked="OnDriverRegisterButtonClicked"/>
-        </HorizontalStackLayout>
-
     </VerticalStackLayout>
 </ContentPage>

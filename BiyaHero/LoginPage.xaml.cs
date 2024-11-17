@@ -42,7 +42,7 @@ public partial class LoginPage : ContentPage
         else if (user.Password == password)
         {
             await DisplayAlert("Success", "Login successful!", "OK");
-            await Navigation.PushAsync(new MainPage()); // Navigate to MainPage
+            await Navigation.PushAsync(new UserHomePage()); // Navigate to MainPage
         }
         else
         {
