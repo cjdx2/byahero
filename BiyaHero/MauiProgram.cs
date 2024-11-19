@@ -4,6 +4,7 @@ using Microsoft.Maui.Graphics;
 using Firebase.Database;
 using FirebaseAdmin;
 
+
 namespace BiyaHero
 {
     public static class MauiProgram
@@ -13,13 +14,11 @@ namespace BiyaHero
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiMaps()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
