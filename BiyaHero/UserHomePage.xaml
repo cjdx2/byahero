@@ -40,7 +40,6 @@
 
         <!-- Content Section -->
         <StackLayout Grid.Row="1" Padding="10">
-            <maps:Map x:Name="map" />
             <!-- Add your map or other content here -->
         </StackLayout>
 
