@@ -2,143 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.DriverAccountsPage"
+             Title="Driver Accounts Management"
              BackgroundColor="#13a073">
 
-    <Grid Padding="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
+    <VerticalStackLayout Padding="20">
         <Label Text="Driver Accounts Management"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       TextColor="#084934"
-                       Margin="0,-30,0,20"/>
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               TextColor="#084934" />
 
-        <Button Text="☰"
-                x:Name="MenuButton"
-                Grid.Row="0"
-                HorizontalOptions="Start"
-                VerticalOptions="Start"
-                BackgroundColor="Transparent"
-                FontSize="20"
-                TextColor="White"
-                FontAttributes="Bold"
-                Margin="10"
-                Clicked="OnMenuClicked" />
+        <Label Text="Manage driver accounts here."
+               FontSize="18"
+               HorizontalTextAlignment="Center"
+               TextColor="#084934" />
 
-        <Frame x:Name="MenuPopup"
-               Grid.RowSpan="2"
-               IsVisible="False"
-               BackgroundColor="#80000000"
-               HorizontalOptions="Start"
-               HeightRequest="280"
-               WidthRequest="180"
-               Margin="20,0,0,0"
-               ZIndex="1">
-            <StackLayout>
-                <Label Text="Home" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHomeClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label Text="Driver Accounts" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label Text="User Accounts" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label Text="Ride History" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnDriverHistoryClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Button Text="Close"
-                        Clicked="OnCloseMenuClicked"
-                        BackgroundColor="#8C13A073"
-                        TextColor="White"
-                        HeightRequest="30"
-                        WidthRequest="100"
-                        HorizontalOptions="Start"
-                        Margin="0,20,0,0"/>
-            </StackLayout>
+        <!-- ListView to display driver accounts with detailed information -->
+        <ListView x:Name="DriverListView"
+                  ItemSelected="OnDriverSelected"
+                  SeparatorColor="#084934"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="5">
+                            <Label Text="{Binding Username}" FontAttributes="Bold" TextColor="#084934" />
+                            <Label Text="{Binding FirstName}" TextColor="#084934" />
+                            <Label Text="{Binding LastName}" TextColor="#084934" />
+                            <Label Text="{Binding VehicleType}" TextColor="#084934" />
+                            <Label Text="{Binding VehiclePlateNumber}" TextColor="#084934" />
+                            <Label Text="{Binding Email}" TextColor="#084934" />
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="#084934" />
 
-            
-        </Frame>
-
-        <ScrollView Grid.Row="1">
-            <VerticalStackLayout Padding="20">
-
-                <Frame BorderColor="Transparent"
-                       BackgroundColor="Transparent"
-                       CornerRadius="20"
-                       Padding="0">
-                    <ListView x:Name="DriverListView"
-                              ItemSelected="OnDriverSelected"
-                              SeparatorColor="Transparent"
-                              HasUnevenRows="True"
-                              BackgroundColor="Transparent">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Frame BackgroundColor="White"
-                                           CornerRadius="15"
-                                           BorderColor="#084934"
-                                           Padding="10"
-                                           Margin="10"
-                                           HasShadow="True">
-                                        <StackLayout Spacing="5">
-                                            <Label Text="{Binding Username}" 
-                                                   FontAttributes="Bold" 
-                                                   TextColor="#084934" />
-                                            <Label TextColor="#084934">
-                                            <Label.Text>
-                                                <MultiBinding StringFormat="{}{0} {1}">
-                                                    <Binding Path="FirstName" />
-                                                    <Binding Path="LastName" />
-                                                </MultiBinding>
-                                            </Label.Text>
-                                        </Label>
-                                            <Label Text="{Binding VehicleType}" 
-                                                   TextColor="#084934" />
-                                            <Label Text="{Binding VehiclePlateNumber}" 
-                                                   TextColor="#084934" />
-                                            <Label Text="{Binding Email}" 
-                                                   TextColor="#084934" />
-                                            <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" 
-                                                   TextColor="#084934" />
-
-                                            <Grid ColumnDefinitions="*,Auto,Auto"
-                                                  Margin="0,10,0,0">
-                                                <Button Grid.Column="1" 
-                                                        Text="Edit" 
-                                                        Clicked="OnEditDriverClicked" 
-                                                        BackgroundColor="#FF13A073"
-                                                        TextColor="White"
-                                                        WidthRequest="70"
-                                                        Margin="5"/>
-                                                <Button Grid.Column="2" 
-                                                        Text="Delete" 
-                                                        Clicked="OnDeleteDriverClicked" 
-                                                        BackgroundColor="#FFBB2E2E"
-                                                        TextColor="White"
-                                                        WidthRequest="70"
-                                                        Margin="5"/>
-                                            </Grid>
-                                        </StackLayout>
-                                    </Frame>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Frame>
-            </VerticalStackLayout>
-        </ScrollView>
-    </Grid>
+                            <!-- Edit and Delete buttons for each driver -->
+                            <Button Text="Edit" Clicked="OnEditDriverClicked" HorizontalOptions="Start" />
+                            <Button Text="Delete" Clicked="OnDeleteDriverClicked" HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
 </ContentPage>

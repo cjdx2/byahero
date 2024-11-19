@@ -62,34 +62,5 @@ namespace BiyaHero
                 }
             }
         }
-
-        // Show the menu popup
-        private void OnMenuClicked(object sender, EventArgs e)
-        {
-            MenuPopup.IsVisible = true;
-        }
-        // Hide the menu popup
-        private void OnCloseMenuClicked(object sender, EventArgs e)
-        {
-            MenuPopup.IsVisible = false;
-        }
-
-        // Handle navigation or actions for each menu item
-        private async void OnHomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AdminHomePage());
-        }
-        private async void OnDriverAccountsClicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Driver Accounts Management displayed", "You are currently viewing Driver Accounts", "Close");
-        }
-        private async void OnUserAccountsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new UserAccountsPage());
-        }
-        private async void OnDriverHistoryClicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
-        }
     }
 }

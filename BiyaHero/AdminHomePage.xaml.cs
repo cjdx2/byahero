@@ -20,28 +20,24 @@ namespace BiyaHero
 
         private async void OnHomeClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Home displayed", "You are currenlty viewing Home screen", "Close");
-
+            await DisplayAlert("Home", "Navigating to Home.", "OK");
+            // Logic for navigating to the Home content can go here
         }
 
         private async void OnDriverAccountsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DriverAccountsPage());
+            await Navigation.PushAsync(new DriverAccountsPage()); // Navigate to DriverAccountsPage
         }
 
         private async void OnUserAccountsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserAccountsPage());
+            await Navigation.PushAsync(new UserAccountsPage()); // Navigate to UserAccountsPage
         }
 
         private async void OnDriverHistoryClicked(object sender, EventArgs e)
         {
             await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
-        }
-
-        private async void OnAddDriverClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new DriverRegisterPage());
+            // Logic for navigating to Driver Ride History content can go here
         }
     }
 }

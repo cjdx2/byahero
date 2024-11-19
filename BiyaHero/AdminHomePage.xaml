@@ -37,14 +37,6 @@
                        Padding="10"
                        TextColor="#084934"
                        Margin="0,0,20,150"/>
-                       
-                <Button Text="Add Driver"
-                        Clicked="OnAddDriverClicked"
-                        BackgroundColor="#084934"
-                        TextColor="White"
-                        FontSize="14"
-                        WidthRequest="150"
-                        Margin="0,20,0,0"/>
             </StackLayout>
         </Grid>
 
@@ -56,11 +48,7 @@
                HeightRequest="280" WidthRequest="180"
                Margin="20,0,0,150">
             <StackLayout>
-                <Label Text="Home" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHomeClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
+                <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
                 <Label Text="Driver Accounts" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
@@ -71,19 +59,15 @@
                         <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Ride History" FontAttributes="Bold" Padding="10">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnDriverHistoryClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Button Text="Close"
-                        Clicked="OnCloseMenuClicked"
-                        BackgroundColor="#8C13A073"
-                        TextColor="White"
-                        HeightRequest="30"
-                        WidthRequest="100"
-                        HorizontalOptions="Start"
-                        Margin="0,20,0,0"/>
+                <Label Text="Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
+                <Button Text="Close" 
+                    Clicked="OnCloseMenuClicked" 
+                    BackgroundColor="#8C13A073" 
+                    TextColor="White" 
+                    HeightRequest="30" 
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Margin="0,20,0,0"/>
             </StackLayout>
         </Frame>
     </Grid>
