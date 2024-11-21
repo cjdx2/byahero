@@ -33,9 +33,13 @@
                    HorizontalOptions="CenterAndExpand" 
                    HeightRequest="22" />
             <!-- Profile Button -->
-            <Image Source="icon_profilebtn.png" 
+            <ImageButton Source="icon_profilebtn.png" 
                    HeightRequest="30" 
-                   VerticalOptions="Center" />
+                   WidthRequest="30"
+                   HorizontalOptions="End" 
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent" 
+                   Clicked="OnProfileButtonClicked"/>
         </StackLayout>
 
         <!-- Content Section -->
@@ -96,22 +100,26 @@
        Margin="20,0,0,150">
             <StackLayout>
                 <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
-                <Label Text="Driver Accounts" FontAttributes="Bold" Padding="10">
+                <Label Text="Profile" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
+                        <TapGestureRecognizer Tapped="OnUserProfileClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="User Accounts" FontAttributes="Bold" Padding="10">
+                <Label Text="Report" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
+                        <TapGestureRecognizer Tapped="OnUserReportClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
+                <Label Text="Logout" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnUserLogoutClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Button Text="Close" 
             Clicked="OnCloseMenuClicked" 
             BackgroundColor="#8C13A073" 
             TextColor="White" 
-            HeightRequest="30" 
+            HeightRequest="40" 
             WidthRequest="100"
             HorizontalOptions="Start"
             Margin="0,20,0,0"/>

@@ -85,6 +85,12 @@
 	  <Compile Update="EditUserPage.xaml.cs">
 	    <DependentUpon>EditUserPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="UserProfileEdit.xaml.cs">
+	    <DependentUpon>UserProfileEdit.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UserProfilePage.xaml.cs">
+	    <DependentUpon>UserProfilePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UserAccountsPage.xaml.cs">
 	    <DependentUpon>UserAccountsPage.xaml</DependentUpon>
 	  </Compile>
@@ -109,6 +115,12 @@
 	  <MauiXaml Update="EditUserPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="UserProfileEdit.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UserProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UserAccountsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -116,6 +128,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UserReportPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

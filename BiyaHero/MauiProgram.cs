@@ -34,6 +34,16 @@ namespace BiyaHero
                 handler.PlatformView.SetPadding(0, 0, 0, 0);
 #endif
             });
+            Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
+            {
+#if ANDROID
+                // Remove the underline by setting the background to transparent
+                handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+
+                // Optional: set padding to zero to avoid extra space around the entry
+                handler.PlatformView.SetPadding(0, 0, 0, 0);
+#endif
+            });
 
             return builder.Build();
         }
