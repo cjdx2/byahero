@@ -5,6 +5,7 @@ namespace BiyaHero
         public AdminHomePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         // Toggle sidebar visibility when Menu button is clicked
@@ -32,6 +33,10 @@ namespace BiyaHero
         private async void OnUserAccountsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new UserAccountsPage()); // Navigate to UserAccountsPage
+        }
+        private async void OnAdminLogoutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage()); // Navigate to LoginPage
         }
 
         private async void OnDriverHistoryClicked(object sender, EventArgs e)

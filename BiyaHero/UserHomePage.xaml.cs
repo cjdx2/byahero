@@ -35,19 +35,24 @@ namespace BiyaHero
             // Logic for navigating to the Home content can go here
         }
 
-        private async void OnDriverAccountsClicked(object sender, EventArgs e)
+        private async void OnUserProfileClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DriverAccountsPage()); // Navigate to DriverAccountsPage
+            await Navigation.PushAsync(new UserProfilePage()); // Navigate to UserProfilePage
         }
 
-        private async void OnUserAccountsClicked(object sender, EventArgs e)
+        private async void OnUserReportClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserAccountsPage()); // Navigate to UserAccountsPage
+            await Navigation.PushAsync(new UserReportPage()); // Navigate to UserReportPage
         }
 
-        private async void OnDriverHistoryClicked(object sender, EventArgs e)
+        private async void OnProfileButtonClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
+            await Navigation.PushAsync(new UserProfilePage()); // Navigate to UserReportPage
+        }
+
+        private async void OnUserLogoutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
             // Logic for navigating to Driver Ride History content can go here
         }
 

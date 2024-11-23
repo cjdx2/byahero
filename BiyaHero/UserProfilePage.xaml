@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.UserProfilePage"
+             Title="Profile">
+    <VerticalStackLayout>
+        <VerticalStackLayout
+        HeightRequest="320" 
+        Background="#0c7151"
+        >
+            <Image Source="icon_profilebtn.png" 
+               Margin="0,20,0,0"
+               HeightRequest="100" 
+               VerticalOptions="Center" />
+            <Label
+                Text="Username"
+                Margin="0,15,0,0"
+                FontSize="22"
+                FontAttributes="Bold"
+                TextColor="White"
+                HorizontalOptions="Center"
+                />
+            <Label
+                Text="Full Name"
+                Margin="0,5,0,0"
+                FontSize="13"
+                TextColor="White"
+                HorizontalOptions="Center"
+                />
+            <Label
+                Text="email"
+                Margin="0,5,0,0"
+                FontSize="13"
+                TextColor="White"
+                HorizontalOptions="Center"
+                />
+            <!-- Button to EditProfile -->
+            <Button Text="Edit Profile" 
+                FontSize="11"
+                Margin="0,30,0,0"
+                Padding="0"
+                FontAttributes="Bold"
+                WidthRequest="100"
+                HeightRequest="40"
+                BackgroundColor="#13a073"
+                CornerRadius="10"
+                Clicked="OnEditUserProfileClicked" 
+                />
+        </VerticalStackLayout>
+            <Label
+                Text="Transaction History"
+                Margin="0,15,0,0"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0c7151"
+                HorizontalOptions="Center"
+                />
+    </VerticalStackLayout>
+</ContentPage>
