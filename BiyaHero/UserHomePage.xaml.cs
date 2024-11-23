@@ -9,6 +9,13 @@ namespace BiyaHero
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+
+        }
+
+        private async void OnMapButtonClicked(object sender, EventArgs e)
+        {
+            // Navigate to the Target Page
+            await Navigation.PushAsync(new MainPage());
         }
 
         // Toggle sidebar visibility when Menu button is clicked
