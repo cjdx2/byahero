@@ -25,12 +25,14 @@
                  HorizontalOptions="Start" 
                  WidthRequest="20"
                  BackgroundColor="Transparent" />
-            <!-- Logo -->
+            
+            <!-- Location Search -->
             <Label Text="" TextColor="White" VerticalTextAlignment="Center" />
             <Entry Placeholder="Enter location" BackgroundColor="White" 
                    VerticalOptions="Center" HorizontalOptions="CenterAndExpand" 
                    WidthRequest="150" HeightRequest="50" />
-
+            
+            <!-- Maps button -->
             <Button Text="See Maps" 
                     Clicked="OnMapButtonClicked"
                     Margin="10,10,10,10"
