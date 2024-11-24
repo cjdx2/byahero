@@ -41,6 +41,9 @@ public partial class LoginPage : ContentPage
         }
         else if (user.Password == password)
         {
+            // Store the user's email for the session
+            UserSession.SaveUserEmail(user.Email);
+
             await DisplayAlert("Success", "Login successful!", "OK");
             await Navigation.PushAsync(new UserHomePage()); // Navigate to MainPage
         }

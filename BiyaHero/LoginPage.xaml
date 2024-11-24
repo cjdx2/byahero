@@ -12,49 +12,49 @@
 
         <!-- Input Field for Email -->
         <Frame HasShadow="False" 
-       BackgroundColor="White" 
-       BorderColor="Transparent" 
-       CornerRadius="10" 
-       Padding="5" 
-       Margin="0,20,0,5" 
-       HeightRequest="50">
+               BackgroundColor="White" 
+               BorderColor="Transparent" 
+               CornerRadius="10" 
+               Padding="5" 
+               Margin="0,20,0,5" 
+               HeightRequest="50">
             <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
                 <Image Source="logo_mail.png" 
-               WidthRequest="20" 
-               HeightRequest="20" 
-               VerticalOptions="Center" />
+                       WidthRequest="20" 
+                       HeightRequest="20" 
+                       VerticalOptions="Center" />
                 <Entry Placeholder="Enter your email" 
-               Margin="10,0,0,0" 
-               x:Name="EmailEntry" 
-               WidthRequest="250" 
-               BackgroundColor="White" 
-               TextColor="Black" 
-               VerticalOptions="Center"/>
+                       Margin="10,0,0,0" 
+                       x:Name="EmailEntry" 
+                       WidthRequest="250" 
+                       BackgroundColor="White" 
+                       TextColor="Black" 
+                       VerticalOptions="Center"/>
             </HorizontalStackLayout>
         </Frame>
 
 
         <!-- Input Field for Password -->
         <Frame HasShadow="False" 
-       BackgroundColor="White" 
-       BorderColor="Transparent" 
-       HeightRequest="50" 
-       CornerRadius="10" 
-       Padding="5" 
-       Margin="0,0,0,20">
+               BackgroundColor="White" 
+               BorderColor="Transparent" 
+               HeightRequest="50" 
+               CornerRadius="10" 
+               Padding="5" 
+               Margin="0,0,0,20">
             <HorizontalStackLayout Margin="10,0,10,0" VerticalOptions="Center">
                 <Image Source="logo_lock.png" 
-               WidthRequest="20" 
-               HeightRequest="20" 
-               VerticalOptions="Center"/>
+                       WidthRequest="20" 
+                       HeightRequest="20" 
+                       VerticalOptions="Center"/>
                 <Entry Placeholder="Enter your password" 
-               Margin="10,0,0,0" 
-               x:Name="PasswordEntry" 
-               WidthRequest="250" 
-               BackgroundColor="White" 
-               TextColor="Black" 
-               IsPassword="True" 
-               VerticalOptions="Center"/>
+                       Margin="10,0,0,0" 
+                       x:Name="PasswordEntry" 
+                       WidthRequest="250" 
+                       BackgroundColor="White" 
+                       TextColor="Black" 
+                       IsPassword="True" 
+                       VerticalOptions="Center"/>
             </HorizontalStackLayout>
         </Frame>
 

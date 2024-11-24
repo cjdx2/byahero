@@ -57,6 +57,12 @@
         </Frame>
 
 
-        <Button Text="Save" BackgroundColor="#0c7151" TextColor="White" Margin="0,30,0,5" />
+        <Button 
+    Text="Save" 
+    BackgroundColor="#0c7151" 
+    TextColor="White" 
+    Margin="0,30,0,5"
+    Clicked="OnSaveButtonClicked"
+/>
     </StackLayout>
 </ContentPage>
