@@ -42,12 +42,33 @@
                    Clicked="OnProfileButtonClicked"/>
         </StackLayout>
 
-        <!-- Content Section -->
-        <StackLayout Grid.Row="1" Padding="10">
-            <Button Text="See Maps"
-                Clicked="OnMapButtonClicked"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+        <!-- Button Section -->
+        <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="300">
+
+            <!-- Input Field for Email -->
+            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10" >
+                <HorizontalStackLayout Margin="10,0,0,0" >
+                    <Image Source="location_circle.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
+                    <Entry Placeholder="Enter your location" Margin="10,0,0,0" WidthRequest="400"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Input Field for Password -->
+            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10">
+                <HorizontalStackLayout Margin="10,0,0,0" >
+                    <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
+                    <Entry Placeholder="Enter your destination" Margin="10,0,0,0" WidthRequest="400"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Button Text="See on Maps" 
+                    Clicked="OnMapButtonClicked"
+                    Margin="10,10,10,10"
+                    HorizontalOptions="FillAndExpand"      
+                    FontAttributes="Bold"
+                    BackgroundColor="#0c7151"
+                    HeightRequest="50"
+                    CornerRadius="10"/>
         </StackLayout>
 
         <!-- Footer Section with Navigation Bar -->
