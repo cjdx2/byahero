@@ -45,7 +45,7 @@
         <!-- Button Section -->
         <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="300">
 
-            <!-- Input Field for Email -->
+            <!-- Input Field for Location -->
             <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10" >
                 <HorizontalStackLayout Margin="10,0,0,0" >
                     <Image Source="location_circle.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
@@ -53,7 +53,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <!-- Input Field for Password -->
+            <!-- Input Field for Destination -->
             <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10">
                 <HorizontalStackLayout Margin="10,0,0,0" >
                     <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
