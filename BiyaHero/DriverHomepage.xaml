@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverHomepage"
+             BackgroundColor="White">
+    <Grid>
+        <!-- Main Layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Header -->
+            <RowDefinition Height="*" />
+            <!-- Content -->
+            <RowDefinition Height="Auto" />
+            <!-- Footer -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid BackgroundColor="#008b5c" Padding="10,20" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="hamburger_icon.png" WidthRequest="30" VerticalOptions="Center" />
+            <StackLayout Orientation="Horizontal" Grid.Column="1" VerticalOptions="Center" Spacing="10">
+                <ImageButton Source="icon_navigationbtn.png" 
+                     HeightRequest="22" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Start" 
+                       WidthRequest="20"
+                       BackgroundColor="Transparent" 
+                    />
+                <Label Text="" TextColor="White" VerticalTextAlignment="Center" />
+                <Entry Placeholder="Enter location" BackgroundColor="White" 
+                       HorizontalOptions="FillAndExpand" WidthRequest="150" />
+            </StackLayout>
+        </Grid>
+        
+        <!-- Footer Button -->
+        <Button Text="Look for bookings"
+                BackgroundColor="#008b5c"
+                TextColor="White"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                CornerRadius="10"
+                Margin="20"
+                WidthRequest="200"
+                Grid.Row="2" />
+        
+    </Grid>
+</ContentPage>

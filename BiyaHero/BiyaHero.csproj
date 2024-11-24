@@ -110,6 +110,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="DriverHomepage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -47,6 +47,9 @@ namespace BiyaHero
         {
             await Navigation.PushAsync(new ReportsPage());
         }
-
+        private async void OnDriverHomepage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverHomepage());
+        }
     }
 }
