@@ -81,9 +81,9 @@ namespace BiyaHero
             await Navigation.PushAsync(new UserAccountsPage());
         }
 
-        private async void OnDriverHistoryClicked(object sender, EventArgs e)
+        private async void OnReportsClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
+            await Navigation.PushAsync(new ReportsPage());
         }
         
         private async void OnAdminLogoutClicked(object sender, EventArgs e)

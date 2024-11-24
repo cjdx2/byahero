@@ -117,7 +117,11 @@
                         <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Reports" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Tapped='OnReportsClicked'}" />
+                <Label Text="Reports" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReportsClicked" />
+                    </Label.GestureRecognizers>
+                </Label>                
                 <Label Text="Logout" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAdminLogoutClicked" />
