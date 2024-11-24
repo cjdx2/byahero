@@ -13,8 +13,6 @@ namespace BiyaHero
             InitializeComponent();
             _databaseService = new DatabaseService();
             _driver = driver;
-
-            // Populate the fields with the existing data
             UsernameEntry.Text = driver.Username;
             FirstNameEntry.Text = driver.FirstName;
             LastNameEntry.Text = driver.LastName;
@@ -25,18 +23,18 @@ namespace BiyaHero
 
         private async void OnSaveChangesClicked(object sender, EventArgs e)
         {
-            // Update the driver data with the new values from the form
             _driver.Username = UsernameEntry.Text;
             _driver.FirstName = FirstNameEntry.Text;
             _driver.LastName = LastNameEntry.Text;
             _driver.VehicleType = VehicleTypeEntry.Text;
             _driver.VehiclePlateNumber = VehiclePlateNumberEntry.Text;
             _driver.Email = EmailEntry.Text;
-
-            // Update the driver in the database
             await _databaseService.UpdateDriverAsync(_driver);
+            await Navigation.PopAsync();
+        }
 
-            // Go back to the previous page
+        private async void OnCancelClicked(object sender, EventArgs e)
+        {
             await Navigation.PopAsync();
         }
     }

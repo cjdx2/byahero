@@ -14,24 +14,20 @@ namespace BiyaHero
             LoadDriverAccounts();
         }
 
-        // Load driver accounts from SQLite
         private async void LoadDriverAccounts()
         {
             var drivers = await _databaseService.GetAllDriversAsync();
             DriverListView.ItemsSource = drivers;
         }
 
-        // Handler for driver selection (optional)
         private void OnDriverSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
                 var selectedDriver = e.SelectedItem as Driver;
-                // Handle selection (e.g., navigate to a detail page or show options)
             }
         }
 
-        // Edit driver button handler
         private async void OnEditDriverClicked(object sender, EventArgs e)
         {
             var button = sender as Button;
@@ -39,13 +35,11 @@ namespace BiyaHero
 
             if (selectedDriver != null)
             {
-                // Navigate to an edit page or display a dialog to edit driver info
                 var editPage = new EditDriverPage(selectedDriver);
                 await Navigation.PushAsync(editPage);
             }
         }
 
-        // Delete driver button handler
         private async void OnDeleteDriverClicked(object sender, EventArgs e)
         {
             var button = sender as Button;
@@ -56,11 +50,45 @@ namespace BiyaHero
                 var confirmDelete = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this driver?", "Yes", "No");
                 if (confirmDelete)
                 {
-                    // Call the Delete method to remove the driver from the database
                     await _databaseService.DeleteDriverAsync(selectedDriver);
-                    LoadDriverAccounts(); // Refresh the list after deletion
+                    LoadDriverAccounts();
                 }
             }
+        }
+
+        private void OnMenuClicked(object sender, EventArgs e)
+        {
+            MenuPopup.IsVisible = true;
+        }
+
+        private void OnCloseMenuClicked(object sender, EventArgs e)
+        {
+            MenuPopup.IsVisible = false;
+        }
+
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminHomePage());
+        }
+
+        private async void OnDriverAccountsClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Driver Accounts Management displayed", "You are currently viewing Driver Accounts", "Close");
+        }
+
+        private async void OnUserAccountsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserAccountsPage());
+        }
+
+        private async void OnDriverHistoryClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Driver Ride History", "Viewing driver ride history.", "OK");
+        }
+        
+        private async void OnAdminLogoutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

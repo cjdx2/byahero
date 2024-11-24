@@ -8,7 +8,6 @@ namespace BiyaHero
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        // Toggle sidebar visibility when Menu button is clicked
         private void OnMenuClicked(object sender, EventArgs e)
         {
             MenuPopup.IsVisible = true;
@@ -21,27 +20,27 @@ namespace BiyaHero
 
         private async void OnHomeClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Home", "Navigating to Home.", "OK");
-            // Logic for navigating to the Home content can go here
+            await DisplayAlert("Home Screen displayed", "You are currently viewing Home.", "Close");
         }
 
         private async void OnDriverAccountsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DriverAccountsPage()); // Navigate to DriverAccountsPage
+            await Navigation.PushAsync(new DriverAccountsPage());
         }
 
         private async void OnUserAccountsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserAccountsPage()); // Navigate to UserAccountsPage
+            await Navigation.PushAsync(new UserAccountsPage());
         }
+
         private async void OnAdminLogoutClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage()); // Navigate to LoginPage
+            await Navigation.PushAsync(new LoginPage());
         }
 
         private async void OnReportsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ReportsPage()); // Navigate to ReportsPage
+            await Navigation.PushAsync(new ReportsPage());
         }
 
     }
