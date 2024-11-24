@@ -12,5 +12,6 @@ namespace BiyaHero.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
+        public string Role { get; set; } // Add this field to identify if the user is a driver or not
     }
 }

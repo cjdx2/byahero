@@ -33,19 +33,29 @@ public partial class LoginPage : ContentPage
             return;
         }
 
+        // Check in the User table
         var user = await _databaseService.GetUserByEmailAsync(email);
 
-        if (user == null)
+        // Check in the Driver table if no match is found in the User table
+        var driver = user == null ? await _databaseService.GetDriverByEmailAsync(email) : null;
+
+        if (user == null && driver == null)
         {
             await DisplayAlert("Error", "No account found with this email. Please sign up first.", "OK");
+            return;
         }
-        else if (user.Password == password)
-        {
-            // Store the user's email for the session
-            UserSession.SaveUserEmail(user.Email);
 
+        if (user != null && user.Password == password)
+        {
+            UserSession.SaveUserEmail(user.Email); // Save user email in the session
             await DisplayAlert("Success", "Login successful!", "OK");
-            await Navigation.PushAsync(new UserHomePage()); // Navigate to MainPage
+            await Navigation.PushAsync(new UserHomePage()); // Navigate to UserHomePage
+        }
+        else if (driver != null && driver.Password == password)
+        {
+            UserSession.SaveUserEmail(driver.Email); // Save driver email in the session
+            await DisplayAlert("Success", "Driver login successful!", "OK");
+            await Navigation.PushAsync(new DriverHomepage()); // Navigate to DriverHomePage
         }
         else
         {
