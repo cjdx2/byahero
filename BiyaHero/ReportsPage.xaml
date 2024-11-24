@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.ReportsPage"
+             BackgroundColor="#F5F5F5">
+
+    <StackLayout Padding="10">
+        <Label Text="User and Driver Reports"
+               FontSize="Medium"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="#084934"
+               Margin="0,20,0,20"/>
+
+        <!-- A simple ListView to show reports, with an indicator of whether it's a user or driver report -->
+        <ListView x:Name="ReportsListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934"/>
+                            <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999"/>
+                            <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

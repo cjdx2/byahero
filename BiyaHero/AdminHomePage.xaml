@@ -8,24 +8,24 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
             <!-- Navigation Button -->
             <ImageButton Source="icon_navigationbtn.png" 
-             HeightRequest="22" 
-             VerticalOptions="Center" 
-             HorizontalOptions="Start" 
-             WidthRequest="20"
-             BackgroundColor="Transparent" 
-             Clicked="OnMenuClicked" />
-            
+                         HeightRequest="22" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Start" 
+                         WidthRequest="20"
+                         BackgroundColor="Transparent" 
+                         Clicked="OnMenuClicked" />
+
             <!-- Logo -->
             <Image Source="logo_biyahero_word.png" 
-               VerticalOptions="Center" 
-               HorizontalOptions="CenterAndExpand" 
-               HeightRequest="22" />
-      </StackLayout>
-        
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   HeightRequest="22" />
+        </StackLayout>
+
         <Grid Grid.Row="1"
               VerticalOptions="Center"
               HorizontalOptions="Center"
@@ -65,20 +65,20 @@
                         <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Ride History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnDriverHistoryClicked}}" />
+                <Label Text="Reports" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Tapped='OnReportsClicked'}" />
                 <Label Text="Logout" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAdminLogoutClicked" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Button Text="Close" 
-                    Clicked="OnCloseMenuClicked" 
-                    BackgroundColor="#8C13A073" 
-                    TextColor="White" 
-                    HeightRequest="40" 
-                    WidthRequest="100"
-                    HorizontalOptions="Start"
-                    Margin="0,20,0,0"/>
+                        Clicked="OnCloseMenuClicked" 
+                        BackgroundColor="#8C13A073" 
+                        TextColor="White" 
+                        HeightRequest="40" 
+                        WidthRequest="100"
+                        HorizontalOptions="Start"
+                        Margin="0,20,0,0"/>
             </StackLayout>
         </Frame>
     </Grid>
