@@ -1,36 +1,57 @@
 using Microsoft.Maui.Controls;
+using BiyaHero.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BiyaHero
 {
     public partial class ReportsPage : ContentPage
     {
+        private readonly DatabaseService _databaseService;
+
         public ReportsPage()
         {
             InitializeComponent();
+            _databaseService = new DatabaseService();
             LoadReports();
         }
 
-        // Sample data model for reports
-        public class Report
+        // Sample method to load reports from the database
+        private async void LoadReports()
         {
-            public string ReportTitle { get; set; }
-            public string ReportType { get; set; } // Can be "User" or "Driver"
-            public string ReportDate { get; set; }
-        }
-
-        // Sample method to load reports
-        private void LoadReports()
-        {
-            var reports = new List<Report>
+            try
             {
-                new Report { ReportTitle = "User Feedback on Ride", ReportType = "User", ReportDate = "2024-11-24" },
-                new Report { ReportTitle = "Driver Performance Report", ReportType = "Driver", ReportDate = "2024-11-23" },
-                new Report { ReportTitle = "User Ride History Report", ReportType = "User", ReportDate = "2024-11-22" },
-                new Report { ReportTitle = "Driver Ride Completion Rate", ReportType = "Driver", ReportDate = "2024-11-21" }
-            };
+                // Fetch reports from the database
+                var reportsFromDb = await _databaseService.GetAllReportsAsync();
 
-            // Bind the sample reports to the ListView
-            ReportsListView.ItemsSource = reports;
+                // Convert the reports into a format suitable for the UI (you can change ReportType based on your logic)
+                var reports = new List<ReportViewModel>();
+
+                foreach (var report in reportsFromDb)
+                {
+                    reports.Add(new ReportViewModel
+                    {
+                        ReportTitle = "Report: " + report.ReportContent,
+                        ReportType = "User",  // Modify this logic as needed (e.g., User or Driver)
+                        ReportDate = report.ReportDate.ToString("yyyy-MM-dd")
+                    });
+                }
+
+                // Bind the fetched reports to the ListView
+                ReportsListView.ItemsSource = reports;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading reports: {ex.Message}");
+            }
         }
+    }
+
+    // A ViewModel to match the format of your ListView
+    public class ReportViewModel
+    {
+        public string ReportTitle { get; set; }
+        public string ReportType { get; set; }
+        public string ReportDate { get; set; }
     }
 }
