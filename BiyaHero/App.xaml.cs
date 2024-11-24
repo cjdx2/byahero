@@ -8,7 +8,7 @@
 
             // Wrap the LoginPage in a NavigationPage to enable navigation
             // Set properties to remove the navigation bar
-            MainPage = new NavigationPage(new AdminHomePage())
+            MainPage = new NavigationPage(new LoginPage())
             {
                 // These properties work with NavigationPage in MAUI
                 BarBackgroundColor = Color.FromArgb("#13a073"),  // Transparent background for navigation bar

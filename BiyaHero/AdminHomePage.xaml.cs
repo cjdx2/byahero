@@ -13,6 +13,11 @@ namespace BiyaHero
             MenuPopup.IsVisible = true;
         }
 
+        private async void OnAddDriverClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverRegisterPage());
+        }
+
         private void OnCloseMenuClicked(object sender, EventArgs e)
         {
             MenuPopup.IsVisible = false;
