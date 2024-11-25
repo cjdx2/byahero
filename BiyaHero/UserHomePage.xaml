@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
              x:Class="BiyaHero.UserHomePage"
-             Title="UserHomePage">
+             Title="UserHomePage"
+             Background="">
     <Grid>
         <!-- Define rows for Header, Content, and Footer -->
         <Grid.RowDefinitions>
@@ -46,7 +47,7 @@
         <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="300">
 
             <!-- Input Field for Location -->
-            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10" >
+            <Frame HasShadow="False" BorderColor="#13a073" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,2" >
                 <HorizontalStackLayout Margin="10,0,0,0" >
                     <Image Source="location_circle.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
                     <Entry Placeholder="Enter your location" Margin="10,0,0,0" WidthRequest="400"/>
@@ -54,7 +55,7 @@
             </Frame>
 
             <!-- Input Field for Destination -->
-            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,10">
+            <Frame HasShadow="False" BorderColor="#13a073" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,2,10,10">
                 <HorizontalStackLayout Margin="10,0,0,0" >
                     <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
                     <Entry Placeholder="Enter your destination" Margin="10,0,0,0" WidthRequest="400"/>

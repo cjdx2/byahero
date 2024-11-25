@@ -47,8 +47,9 @@
                         BackgroundColor="#13a073" 
                         TextColor="White" 
                         HeightRequest="40" 
-                        WidthRequest="150"
-                        HorizontalOptions="Center"/>
+                        WidthRequest="170"
+                        HorizontalOptions="Center"
+                        Margin="0,10,0,10"/>
 
                 <Button Text="View Driver's panel" 
                         Clicked="OnDriverHomepage" 
