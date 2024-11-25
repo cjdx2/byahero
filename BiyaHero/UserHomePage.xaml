@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
              x:Class="BiyaHero.UserHomePage"
-             Title="UserHomePage"
-             Background="">
+             Title="UserHomePage">
     <Grid>
         <!-- Define rows for Header, Content, and Footer -->
         <Grid.RowDefinitions>
