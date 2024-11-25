@@ -46,6 +46,10 @@
                 <Entry Placeholder="Confirm Password" x:Name="CPasswordEntry" HorizontalOptions="Fill" HeightRequest="30" Visual="None" BackgroundColor="Transparent" IsPassword="True"/>
             </Frame>
 
+            <!-- Photo Selection -->
+            <Button Text="Upload License ID" BackgroundColor="#13a073" TextColor="White" Clicked="OnSelectPhotoButtonClicked" />
+            <Image x:Name="SelectedPhoto" Aspect="AspectFill" Margin="0,10,0,10" />
+
             <!-- Terms and Conditions Checkbox -->
             <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
                 <CheckBox x:Name="AgreeCheckBox" Color="#13a073" IsChecked="False" />

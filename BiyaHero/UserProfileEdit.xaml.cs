@@ -47,10 +47,7 @@ public partial class UserProfileEdit : ContentPage
     {
         if (_currentUser != null)
         {
-            // Update user details
-            _currentUser.Username = UsernameEntry.Text?.Trim();
-            _currentUser.FirstName = FirstNameEntry.Text?.Trim();
-            _currentUser.LastName = LastNameEntry.Text?.Trim();
+            // Update email only
             _currentUser.Email = EmailEntry.Text?.Trim();
 
             // Save to database
@@ -83,5 +80,5 @@ public partial class UserProfileEdit : ContentPage
         {
             await DisplayAlert("Error", "Unable to save changes. User not found.", "OK");
         }
-    }
+}
 }

@@ -47,6 +47,13 @@
                                            Margin="10"
                                            HasShadow="True">
                                         <StackLayout Spacing="5">
+                                            <!-- Driver Photo -->
+                                            <Image Source="{Binding PhotoPath}"
+                                               WidthRequest="60"
+                                               HeightRequest="60"
+                                               Aspect="AspectFill"
+                                               VerticalOptions="Center"
+                                               Margin="0,0,10,0" />         
                                             <Label Text="{Binding Username}" 
                                                    FontAttributes="Bold" 
                                                    TextColor="#084934" />
