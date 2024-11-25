@@ -40,24 +40,25 @@
                        HorizontalTextAlignment="Center"
                        Padding="10"
                        TextColor="#084934"
-                       Margin="0,0,20,150"/>
+                       Margin="0,0,20,100"/>
 
                 <Button Text="Add Driver" 
                         Clicked="OnAddDriverClicked" 
                         BackgroundColor="#13a073" 
                         TextColor="White" 
                         HeightRequest="40" 
-                        WidthRequest="170"
+                        WidthRequest="160"
                         HorizontalOptions="Center"
-                        Margin="0,10,0,10"/>
+                        Margin="0,0,20,10"/>
 
-                <Button Text="View Driver's panel" 
+                <Button Text="View Driver's Panel" 
                         Clicked="OnDriverHomepage" 
                         BackgroundColor="#13a073" 
                         TextColor="White" 
                         HeightRequest="40" 
-                        WidthRequest="170"
-                        HorizontalOptions="Center"/>
+                        WidthRequest="160"
+                        HorizontalOptions="Center"
+                        Margin="0,0,20,10"/>
             </StackLayout>
         </Grid>
 

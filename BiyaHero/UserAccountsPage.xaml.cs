@@ -14,57 +14,81 @@ namespace BiyaHero
             LoadUserAccounts();
         }
 
-        // Load user accounts from the database
         private async void LoadUserAccounts()
         {
             var users = await _databaseService.GetAllUsersAsync();
             UserListView.ItemsSource = users;
         }
 
-        // Edit user action (navigate to EditUserPage or open a dialog)
-        private async void OnEditUserClicked(object sender, EventArgs e)
+        private void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var button = (Button)sender; // Cast sender to Button
-            var user = button.CommandParameter as User; // Get the user from CommandParameter
-            if (user != null)
+            if (e.SelectedItem != null)
             {
-                // Navigate to edit page, passing the user data
-                await Navigation.PushAsync(new EditUserPage(user));
+                var selectedUser = e.SelectedItem as User;
             }
         }
 
-        // Delete user action
+        private async void OnEditUserClicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var selectedUser = button?.BindingContext as User;
+
+            if (selectedUser != null)
+            {
+                var editPage = new EditUserPage(selectedUser);
+                await Navigation.PushAsync(editPage);
+            }
+        }
+
         private async void OnDeleteUserClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender; // Cast sender to Button
-            var user = button.CommandParameter as User; // Get the user from CommandParameter
-            if (user != null)
+            var button = sender as Button;
+            var selectedUser = button?.BindingContext as User;
+
+            if (selectedUser != null)
             {
-                var result = await DisplayAlert("Delete User", "Are you sure you want to delete this user?", "Yes", "No");
-                if (result)
+                var confirmDelete = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this user?", "Yes", "No");
+                if (confirmDelete)
                 {
-                    await _databaseService.DeleteUserAsync(user);
-                    LoadUserAccounts(); // Reload the users after deletion
+                    await _databaseService.DeleteUserAsync(selectedUser);
+                    LoadUserAccounts();
                 }
             }
         }
 
-        // Event handler for when a user is selected in the ListView
-        private async void OnUserSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnMenuClicked(object sender, EventArgs e)
         {
-            if (e.SelectedItem == null)
-                return; // Exit if no item is selected
+            MenuPopup.IsVisible = true;
+        }
 
-            var selectedUser = e.SelectedItem as User;
+        private void OnCloseMenuClicked(object sender, EventArgs e)
+        {
+            MenuPopup.IsVisible = false;
+        }
 
-            if (selectedUser != null)
-            {
-                // Navigate to the EditUserPage with the selected user
-                await Navigation.PushAsync(new EditUserPage(selectedUser));
-            }
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminHomePage());
+        }
 
-            // Deselect the item after navigating
-            UserListView.SelectedItem = null;
+        private async void OnDriverAccountsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverAccountsPage());
+        }
+
+        private async void OnUserAccountsClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("User Accounts Management displayed", "You are currently viewing User Accounts", "Close");
+        }
+
+        private async void OnReportsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ReportsPage());
+        }
+        
+        private async void OnAdminLogoutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

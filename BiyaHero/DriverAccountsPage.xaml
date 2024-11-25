@@ -18,7 +18,7 @@
                          BackgroundColor="Transparent" 
                          Clicked="OnMenuClicked" />
 
-            <Label Text="Driver Accounts Management" 
+            <Label Text="Driver Accounts" 
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" 
                 FontAttributes="Bold" 

@@ -1,58 +1,137 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.UserAccountsPage"
-             Title="User Accounts Management"
-             BackgroundColor="#13a073">
+             BackgroundColor="#0c7151">
 
-    <!-- Wrapping everything in a ScrollView -->
-    <ScrollView>
-        <VerticalStackLayout Padding="20">
+    <Grid Padding="0" VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <Label Text="User Accounts Management"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"
-                   TextColor="#084934" />
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
+            <ImageButton Source="icon_navigationbtn.png" 
+                         HeightRequest="22" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Start" 
+                         WidthRequest="20"
+                         BackgroundColor="Transparent" 
+                         Clicked="OnMenuClicked" />
 
-            <Label Text="Manage user accounts here."
-                   FontSize="18"
-                   HorizontalTextAlignment="Center"
-                   TextColor="#084934" />
+            <Label Text="User Accounts" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontAttributes="Bold" 
+                   TextColor="White"
+                   FontSize="Medium" />
+        </StackLayout>
 
-            <!-- ListView to display user accounts with detailed information -->
-            <ListView x:Name="UserListView"
-                      ItemSelected="OnUserSelected"
-                      SeparatorColor="#084934"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" Spacing="5">
-                                <Label Text="{Binding Username}" FontAttributes="Bold" TextColor="#084934" />
-                                <Label Text="{Binding FirstName}" TextColor="#084934" />
-                                <Label Text="{Binding LastName}" TextColor="#084934" />
-                                <Label Text="{Binding Email}" TextColor="#084934" />
-                                <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="#084934" />
+        <ScrollView Grid.Row="1" Padding="0">
+            <VerticalStackLayout Padding="0">
+                <Frame BorderColor="Transparent"
+                       BackgroundColor="Transparent"
+                       CornerRadius="20"
+                       Padding="0">
+                    <ListView x:Name="UserListView"
+                              ItemSelected="OnUserSelected"
+                              SeparatorColor="Transparent"
+                              HasUnevenRows="True"
+                              BackgroundColor="Transparent">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BackgroundColor="White"
+                                           CornerRadius="15"
+                                           BorderColor="#084934"
+                                           Padding="10"
+                                           Margin="10"
+                                           HasShadow="True">
+                                        <StackLayout Spacing="5">
+                                            <Label Text="{Binding Username}" 
+                                                   FontAttributes="Bold" 
+                                                   TextColor="#084934" />
+                                            <Label TextColor="#084934">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="FirstName" />
+                                                        <Binding Path="LastName" />
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                            <Label Text="{Binding Email}" 
+                                                   TextColor="#084934" />
+                                            <Label Text="{Binding CreatedAt, StringFormat='{0:MMMM dd, yyyy}'}" 
+                                                   TextColor="#084934" />
 
-                                <!-- Edit and Delete buttons for each user -->
-                                <StackLayout Orientation="Horizontal" Spacing="10">
-                                    <Button Text="Edit" 
-                                            Clicked="OnEditUserClicked" 
-                                            CommandParameter="{Binding .}" 
-                                            HorizontalOptions="Start" />
+                                            <Grid ColumnDefinitions="*,Auto,Auto"
+                                                  Margin="0,10,0,0">
+                                                <Button Grid.Column="1" 
+                                                        Text="Edit" 
+                                                        Clicked="OnEditUserClicked" 
+                                                        BackgroundColor="#FF13A073"
+                                                        TextColor="White"
+                                                        WidthRequest="70"
+                                                        Margin="5"/>
+                                                <Button Grid.Column="2" 
+                                                        Text="Delete" 
+                                                        Clicked="OnDeleteUserClicked" 
+                                                        BackgroundColor="#FFBB2E2E"
+                                                        TextColor="White"
+                                                        WidthRequest="70"
+                                                        Margin="5"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
 
-                                    <Button Text="Delete" 
-                                            Clicked="OnDeleteUserClicked" 
-                                            CommandParameter="{Binding .}" 
-                                            HorizontalOptions="End" />
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <Frame x:Name="MenuPopup"
+               IsVisible="False"
+               BackgroundColor="#80000000"
+               Grid.RowSpan="2"
+               HorizontalOptions="Start"
+               HeightRequest="320" WidthRequest="180"
+               Margin="20,0,0,150">
+            <StackLayout>
+                <Label Text="Home" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHomeClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Driver Accounts" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDriverAccountsClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="User Accounts" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnUserAccountsClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Reports" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReportsClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Logout" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAdminLogoutClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Button Text="Close" 
+                        Clicked="OnCloseMenuClicked" 
+                        BackgroundColor="#8C13A073" 
+                        TextColor="White" 
+                        HeightRequest="40" 
+                        WidthRequest="100"
+                        HorizontalOptions="Start"
+                        Margin="0,20,0,0"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
 </ContentPage>
