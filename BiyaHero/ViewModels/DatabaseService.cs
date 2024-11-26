@@ -56,12 +56,9 @@ namespace BiyaHero.Services
             return _database.UpdateAsync(user);
         }
 
-        // New method to fetch the current logged-in user (Modify according to your login mechanism)
         public Task<User> GetCurrentUserAsync()
         {
-            // Assuming we have a method to retrieve the logged-in user by session or identifier.
-            // Here, we assume that the first user is the logged-in user for demonstration purposes.
-            return _database.Table<User>().FirstOrDefaultAsync();  // This can be adjusted based on your session management.
+            return _database.Table<User>().FirstOrDefaultAsync();
         }
 
         public Task<int> AddDriverAsync(Driver driver)
@@ -89,7 +86,6 @@ namespace BiyaHero.Services
             return _database.UpdateAsync(driver);
         }
 
-        // Add Report
         public async Task<int> AddReportAsync(Report report)
         {
             try
@@ -103,34 +99,62 @@ namespace BiyaHero.Services
             }
         }
 
-        // Get All Reports
         public Task<List<Report>> GetAllReportsAsync()
         {
             return _database.Table<Report>().ToListAsync();
         }
 
-        // Get Report by ID
         public Task<Report> GetReportByIdAsync(int id)
         {
             return _database.Table<Report>().Where(r => r.Id == id).FirstOrDefaultAsync();
         }
 
-        // Get Reports by User Email
         public Task<List<Report>> GetReportsByUserEmailAsync(string email)
         {
             return _database.Table<Report>().Where(r => r.UserEmail == email).ToListAsync();
         }
 
-        // Delete Report
         public Task<int> DeleteReportAsync(Report report)
         {
             return _database.DeleteAsync(report);
         }
 
-        // Update Report
         public Task<int> UpdateReportAsync(Report report)
         {
             return _database.UpdateAsync(report);
+        }
+
+        // Update report status (e.g., Resolved or Spam)
+        public async Task<int> UpdateReportStatusAsync(string email, string status)
+        {
+            try
+            {
+                // Find all reports for the given email
+                var reports = await GetReportsByUserEmailAsync(email);
+
+                if (reports != null && reports.Count > 0)
+                {
+                    foreach (var report in reports)
+                    {
+                        report.Status = status; // Update status
+                        await _database.UpdateAsync(report); // Save changes
+                    }
+                    return reports.Count; // Return the number of updated reports
+                }
+
+                return 0; // No reports found for the email
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating report status: {ex.Message}");
+                return -1; // Return a failure code
+            }
+        }
+
+        // Fetch reports by status (Resolved or Spam)
+        public Task<List<Report>> GetReportsByStatusAsync(string status)
+        {
+            return _database.Table<Report>().Where(r => r.Status == status).ToListAsync();
         }
     }
 }

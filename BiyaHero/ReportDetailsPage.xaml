@@ -1,0 +1,18 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.ReportDetailsPage"
+             Title="Report Details">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Report Details" FontSize="Large" FontAttributes="Bold" TextColor="#084934" HorizontalOptions="Center"/>
+            <Label Text="Report Title:" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="{Binding ReportTitle}" TextColor="#084934"/>
+            <Label Text="Report Type:" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="{Binding ReportType}" TextColor="#777777"/>
+            <Label Text="Report Date:" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="{Binding ReportDate}" TextColor="#777777"/>
+            <Label Text="User Email:" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="{Binding UserEmail}" TextColor="#777777"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

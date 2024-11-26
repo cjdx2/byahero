@@ -9,5 +9,6 @@ namespace BiyaHero
         public string ReportContent { get; set; }
         public DateTime ReportDate { get; set; }
         public string UserEmail { get; set; }  // Assuming you want to track the user's email for the report
+        public string Status { get; set; } // Can be "Resolved", "Spam", etc.
     }
 }
