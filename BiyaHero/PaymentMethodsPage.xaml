@@ -9,19 +9,22 @@
                FontSize="20"
                HorizontalOptions="Center" />
 
-        <Button Text="Credit/Debit Card" 
+        <Button x:Name="CreditCardButton"
+                Text="Credit/Debit Card (Stripe)" 
                 Clicked="OnCreditCardButtonClicked" 
                 Margin="10"
                 BackgroundColor="#0c7151"
                 HeightRequest="50" />
 
-        <Button Text="Cash" 
+        <Button x:Name="CashButton"
+                Text="Cash (Default)" 
                 Clicked="OnCashOnDeliveryButtonClicked" 
                 Margin="10"
                 BackgroundColor="#0c7151"
                 HeightRequest="50" />
 
-        <Button Text="PayPal" 
+        <Button x:Name="PayPalButton"
+                Text="PayPal" 
                 Clicked="OnPayPalButtonClicked" 
                 Margin="10"
                 BackgroundColor="#0c7151"
