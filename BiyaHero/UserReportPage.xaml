@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BiyaHero.UserReportPage">
-    <VerticalStackLayout Padding="5" Margin="10,10,10,0">
-        <Label Text="Report"
-               FontSize="20"
+             x:Class="BiyaHero.UserReportPage"
+             BackgroundColor="#009866"
+             Padding="0">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Back button -->
+        <ImageButton Source="back_icon.png" 
+                BackgroundColor="Transparent" 
+                HeightRequest="40"
+                WidthRequest="40"
+                HorizontalOptions="Start"  />
+
+        <!-- Page title -->
+        <Label Text="Report an Issue"
+               FontSize="24"
                FontAttributes="Bold"
-               HorizontalTextAlignment="Start" />
+               TextColor="White"
+               HorizontalOptions="Center" />
 
+        <!-- Input area with submit button -->
         <Frame HasShadow="False"
-               BorderColor="LightGray"
+               BackgroundColor="White"
                CornerRadius="10"
-               Padding="5"
-               HeightRequest="200"
-               Margin="0,10,0,5">
-            <Editor x:Name="ReportEditor"
-                    Placeholder="Input your report here"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    HeightRequest="200" />
-        </Frame>
+               Padding="10"
+               Margin="0">
+            <Grid RowDefinitions="*,Auto" ColumnDefinitions="*">
+                <!-- Text Editor -->
+                <Editor x:Name="ReportEditor"
+                        Grid.Row="0"
+                        Placeholder="Tell us what happened..."
+                        FontSize="16"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        HeightRequest="450"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
 
-        <Button Text="Submit Report"
-                BackgroundColor="#0c7151"
-                TextColor="White"
-                Margin="0,30,0,5"
-                Clicked="OnSubmitReportClicked" />
+                <!-- Submit Button -->
+                <Button Text="Submit"
+                        Grid.Row="1"
+                        BackgroundColor="#009866"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="25"
+                        Margin="0,10,0,0"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
+                        Clicked="OnSubmitReportClicked" />
+            </Grid>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
