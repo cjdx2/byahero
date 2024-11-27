@@ -38,7 +38,11 @@ namespace BiyaHero
         {
             await Navigation.PushAsync(new DriverTransactionHistoryPage()); // Navigate to TransactionHistoryPage
         }
-
+        private async void OnDriverProfileClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverProfile());
+            // Logic for logout action
+        }
         private async void OnDriverLogoutClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());

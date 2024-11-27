@@ -18,7 +18,7 @@
         <!-- Header Section -->
         <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
             <!-- Navigation Button -->
-            <ImageButton Source="icon_navigationbtn.png" 
+            <ImageButton Source="icon_profilebtn2.png" 
                          HeightRequest="22" 
                          VerticalOptions="Center" 
                          HorizontalOptions="Start" 
@@ -50,6 +50,11 @@
                 <Label Text="Transaction History" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTransactionHistoryClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Rider Profile" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDriverProfileClicked" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Text="Logout" FontAttributes="Bold" Padding="10">

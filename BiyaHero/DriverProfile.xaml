@@ -1,0 +1,93 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverProfile"
+             BackgroundColor="#009866">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Title -->
+            <Label Text="Driver Profile"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,10" />
+
+            <!-- Profile Card -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="20"
+                   Margin="0,10,0,10">
+                <StackLayout Spacing="15">
+                    <!-- Profile Image -->
+                    <Frame BackgroundColor="#FFFFFF"
+                           CornerRadius="50"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           HorizontalOptions="Center">
+                        <Image Source="icon_profilebtn2.png"
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100" />
+                    </Frame>
+
+                    <!-- Driver Info -->
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Juan D. Dela Cruz"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="jdelacruz@gmail.com"
+                               FontSize="14"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+
+                    <!-- License ID -->
+                    <Label Text="License ID:"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="#009866" />
+                    <Label Text="902375323"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" />
+
+                    <!-- Vehicle Type -->
+                    <Label Text="Vehicle Type:"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="#009866" />
+                    <Label Text="Honda Civic"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" />
+
+                    <!-- Buttons Inside the Frame -->
+                    <Button Text="View Booking History"
+                            BackgroundColor="#009866"
+                            TextColor="White"
+                            CornerRadius="25"
+                            FontSize="15"
+                            Margin="0,20,0,10"
+                            HeightRequest="45" />
+
+                    <Button Text="Edit Profile"
+                            BackgroundColor="White"
+                            TextColor="#009866"
+                            CornerRadius="25"
+                            FontSize="16"
+                            Margin="0,0,0,0"
+                            HeightRequest="45"
+                            BorderColor="#009866"
+                            BorderWidth="2" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
