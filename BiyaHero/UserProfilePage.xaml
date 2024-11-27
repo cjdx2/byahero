@@ -2,63 +2,88 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.UserProfilePage"
-             Background="#0c7151">
-    <VerticalStackLayout>
-        <VerticalStackLayout
-            HeightRequest="400" 
-            Background="#0c7151">
+             BackgroundColor="#f4f5f7">
+    <ContentPage.Content>
+        <Grid>
+            <!-- Define header and main content rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <!-- Header -->
+                <RowDefinition Height="*"/>
+                <!-- Content -->
+            </Grid.RowDefinitions>
 
-            <Image Source="icon_profilebtn.png" 
-                   Margin="0,20,0,0"
-                   HeightRequest="100" 
-                   VerticalOptions="Center" />
+            <!-- Header Background -->
+            <BoxView BackgroundColor="#0c7151" Grid.Row="0" />
 
-            <Label
-                x:Name="UsernameLabel"
-                Text="Username"
-                Margin="0,15,0,0"
-                FontSize="22"
-                FontAttributes="Bold"
-                TextColor="White"
-                HorizontalOptions="Center" />
+            <!-- Profile Picture -->
+            <Frame
+                Padding="0"
+                CornerRadius="100"
+                HeightRequest="120"
+                WidthRequest="120"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,-70"
+                Grid.Row="0">
+                <Image Source="icon_profilebtn.png" Aspect="AspectFill"/>
+            </Frame>
 
-            <Label
-                x:Name="FullNameLabel"
-                Text="Full Name"
-                Margin="0,5,0,0"
-                FontSize="13"
-                TextColor="White"
-                HorizontalOptions="Center" />
-
-            <Label
-                x:Name="EmailLabel"
-                Text="Email"
-                Margin="0,5,0,0"
-                FontSize="13"
-                TextColor="White"
-                HorizontalOptions="Center" />
-
-            <Button Text="Edit Profile" 
-                    FontSize="11"
-                    Margin="0,30,0,0"
-                    Padding="0"
+            <!-- Main Content -->
+            <VerticalStackLayout Grid.Row="1" Margin="20,80,20,0" Spacing="10">
+                <Label
+                    x:Name="UsernameLabel"
+                    FontFamily="Arial"
+                    Text="Username"
+                    Margin="0,0,0,0"
+                    FontSize="22"
                     FontAttributes="Bold"
-                    WidthRequest="150"
-                    HeightRequest="40"
+                    TextColor="#0f9f72"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    x:Name="FullNameLabel"
+                    Text="Juan A. Dela Cruz"
+                    Margin="0,0,0,0"
+                    FontSize="15"
+                    TextColor="#3c3b3b"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    x:Name="EmailLabel"
+                    Text="juanldacruz07@gmail.com"
+                    Margin="0,0,0,15"
+                    FontSize="15"
+                    TextColor="#3c3b3b"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    Text="Edit Profile"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    TextColor="White"
                     BackgroundColor="#13a073"
-                    CornerRadius="10"
+                    CornerRadius="25"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
                     Clicked="OnEditUserProfileClicked" />
 
-            <Button Text="Transaction History" 
-                    FontSize="11"
-                    Margin="0,10,0,0"
-                    Padding="0"
+                <Button
+                    Text="Transaction History"
+                    FontSize="14"
                     FontAttributes="Bold"
-                    WidthRequest="150"
-                    HeightRequest="40"
-                    BackgroundColor="#13a073"
-                    CornerRadius="10"
+                    TextColor="#0c7151"
+                    BackgroundColor="White"
+                    BorderColor="#13a073"
+                    BorderWidth="2"
+                    CornerRadius="25"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
                     Clicked="OnTransactionHistoryClicked" />
-        </VerticalStackLayout>
-    </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

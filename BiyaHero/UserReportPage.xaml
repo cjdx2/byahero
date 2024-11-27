@@ -2,15 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.UserReportPage"
-             BackgroundColor="#009866"
-             Padding="0">
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <!-- Back button -->
-        <ImageButton Source="back_icon.png" 
-                BackgroundColor="Transparent" 
-                HeightRequest="40"
-                WidthRequest="40"
-                HorizontalOptions="Start"  />
+             BackgroundColor="#009866">
+    <VerticalStackLayout Padding="20" Spacing="20">
 
         <!-- Page title -->
         <Label Text="Report an Issue"
@@ -32,8 +25,8 @@
                         Placeholder="Tell us what happened..."
                         FontSize="16"
                         BackgroundColor="Transparent"
+                        HeightRequest="350"
                         TextColor="Black"
-                        HeightRequest="450"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
 
@@ -46,7 +39,7 @@
                         CornerRadius="25"
                         Margin="0,10,0,0"
                         HeightRequest="50"
-                        WidthRequest="120"
+                        WidthRequest="200"
                         HorizontalOptions="Center"
                         Clicked="OnSubmitReportClicked" />
             </Grid>

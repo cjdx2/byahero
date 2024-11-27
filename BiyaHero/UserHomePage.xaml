@@ -4,9 +4,9 @@
              xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
              x:Class="BiyaHero.UserHomePage"
              Title="UserHomePage">
-    <Grid>
+    <Grid >
         <!-- Define rows for Header, Content, and Footer -->
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
             <!-- Header -->
             <RowDefinition Height="*"/>
