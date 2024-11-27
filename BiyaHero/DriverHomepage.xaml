@@ -35,28 +35,36 @@
 
         <!-- Sidebar for Navigation -->
         <Frame x:Name="DriverMenuPopup"
-               IsVisible="False"
-               BackgroundColor="#80000000"
-               Grid.RowSpan="2"
-               HorizontalOptions="Start"
-               HeightRequest="280" WidthRequest="180"
-               Margin="20,0,0,150">
+       IsVisible="False"
+       BackgroundColor="#80000000"
+       Grid.RowSpan="2"
+       HorizontalOptions="Start"
+       HeightRequest="280" WidthRequest="180"
+       Margin="20,0,0,150">
             <StackLayout>
-                <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
-                <Label Text="Transaction History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnTransactionHistoryClicked}}" />
+                <Label Text="Home" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHomeClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Transaction History" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTransactionHistoryClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="Logout" FontAttributes="Bold" Padding="10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDriverLogoutClicked" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Button Text="Close" 
-                        Clicked="OnCloseMenuClicked" 
-                        BackgroundColor="#8C13A073" 
-                        TextColor="White" 
-                        HeightRequest="40" 
-                        WidthRequest="100"
-                        HorizontalOptions="Start"
-                        Margin="0,20,0,0"/>
+                Clicked="OnCloseMenuClicked" 
+                BackgroundColor="#8C13A073" 
+                TextColor="White" 
+                HeightRequest="40" 
+                WidthRequest="100"
+                HorizontalOptions="Start"
+                Margin="0,20,0,0"/>
             </StackLayout>
         </Frame>
 

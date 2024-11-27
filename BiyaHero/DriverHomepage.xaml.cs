@@ -36,7 +36,7 @@ namespace BiyaHero
 
         private async void OnTransactionHistoryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TransactionHistoryPage()); // Navigate to TransactionHistoryPage
+            await Navigation.PushAsync(new DriverTransactionHistoryPage()); // Navigate to TransactionHistoryPage
         }
 
         private async void OnDriverLogoutClicked(object sender, EventArgs e)
