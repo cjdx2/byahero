@@ -56,5 +56,10 @@ namespace BiyaHero
             // Logic for navigating to Driver Ride History content can go here
         }
 
+        private async void OnPaymentMethodsButtonClicked(object sender, EventArgs e)
+        {
+            // Navigate to the PaymentMethodsPage
+            await Navigation.PushAsync(new PaymentMethodsPage());
+        }
     }
 }

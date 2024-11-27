@@ -69,6 +69,16 @@
                     BackgroundColor="#0c7151"
                     HeightRequest="50"
                     CornerRadius="10"/>
+
+            <Button Text="Payment Methods" 
+                    Clicked="OnPaymentMethodsButtonClicked"
+                    Margin="10,10,10,10"
+                    HorizontalOptions="Start"      
+                    FontAttributes="Bold"
+                    BackgroundColor="#0c7151"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    WidthRequest="200"/>        
         </StackLayout>
 
         <!-- Footer Section with Navigation Bar -->

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.PaymentMethodsPage"
+             Title="Payment Methods">
+
+    <StackLayout Padding="20">
+        <Label Text="Choose your payment method:" 
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+        <Button Text="Credit/Debit Card" 
+                Clicked="OnCreditCardButtonClicked" 
+                Margin="10"
+                BackgroundColor="#0c7151"
+                HeightRequest="50" />
+
+        <Button Text="Cash" 
+                Clicked="OnCashOnDeliveryButtonClicked" 
+                Margin="10"
+                BackgroundColor="#0c7151"
+                HeightRequest="50" />
+
+        <Button Text="PayPal" 
+                Clicked="OnPayPalButtonClicked" 
+                Margin="10"
+                BackgroundColor="#0c7151"
+                HeightRequest="50" />
+    </StackLayout>
+</ContentPage>
