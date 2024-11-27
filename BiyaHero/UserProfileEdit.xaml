@@ -3,7 +3,7 @@
              x:Class="BiyaHero.UserProfileEdit"
              BackgroundColor="#009866">
 
-    <StackLayout Padding="30" VerticalOptions="Center">
+    <StackLayout Padding="30, 0,30,30" VerticalOptions="Center">
         <!-- Title -->
         <Label Text="Edit Account"
                FontSize="24"
@@ -19,7 +19,7 @@
                Padding="10"
                Margin="0,20,0,10">
             <Entry Placeholder="User Name"
-                   x:Name="UserNameEntry"
+                   x:Name="UsernameEntry"
                    TextColor="Black"
                    BackgroundColor="White"
                    HeightRequest="10"
@@ -75,8 +75,9 @@
         <Button Text="Save"
                 BackgroundColor="#13ce93"
                 TextColor="White"
-                CornerRadius="10"
+                CornerRadius="25"
                 FontSize="16"
+                WidthRequest="200"
                 HeightRequest="50"
                 Margin="0,20,0,0"
                 Clicked="OnSaveButtonClicked" />
