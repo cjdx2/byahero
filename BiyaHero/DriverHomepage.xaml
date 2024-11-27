@@ -13,40 +13,52 @@
             <RowDefinition Height="Auto"/>
             <!-- Footer -->
             <RowDefinition Height="Auto"/>
-            <!-- Footer -->
         </Grid.RowDefinitions>
-        
+
         <!-- Header Section -->
-        <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="100">
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
             <!-- Navigation Button -->
             <ImageButton Source="icon_navigationbtn.png" 
-                 HeightRequest="25" 
-                 VerticalOptions="Center" 
-                 HorizontalOptions="Start" 
-                 WidthRequest="20"
-                 BackgroundColor="Transparent" />
+                         HeightRequest="22" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Start" 
+                         WidthRequest="20"
+                         BackgroundColor="Transparent" 
+                         Clicked="OnNavigationButtonClicked" />
+            <!-- Logo (optional) -->
+            <Image Source="logo_biyahero_word.png" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   HeightRequest="22" />
             
-            <!-- Location Search -->
-            <Label Text="" TextColor="White" VerticalTextAlignment="Center" />
-            <Entry Placeholder="Enter location" BackgroundColor="White" 
-                   VerticalOptions="Center" HorizontalOptions="CenterAndExpand" 
-                   WidthRequest="150" HeightRequest="50" />
-            
-            <!-- Maps button -->
-            <Button Text="See Maps" 
-                    Clicked="OnMapButtonClicked"
-                    Margin="10,10,10,10"
-                   HorizontalOptions="End" 
-                    VerticalOptions="Center"
-                    FontAttributes="Bold"
-                    TextColor="#0c7151"
-                    BackgroundColor="White"
-                    HeightRequest="50"
-                    CornerRadius="10"
-                    WidthRequest="150"/>
-
         </StackLayout>
 
+        <!-- Sidebar for Navigation -->
+        <Frame x:Name="DriverMenuPopup"
+               IsVisible="False"
+               BackgroundColor="#80000000"
+               Grid.RowSpan="2"
+               HorizontalOptions="Start"
+               HeightRequest="280" WidthRequest="180"
+               Margin="20,0,0,150">
+            <StackLayout>
+                <Label Text="Home" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnHomeClicked}}" />
+                <Label Text="Transaction History" FontAttributes="Bold" Padding="10" GestureRecognizers="{TapGestureRecognizer Command={Binding OnTransactionHistoryClicked}}" />
+                <Label Text="Logout" FontAttributes="Bold" Padding="10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDriverLogoutClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Button Text="Close" 
+                        Clicked="OnCloseMenuClicked" 
+                        BackgroundColor="#8C13A073" 
+                        TextColor="White" 
+                        HeightRequest="40" 
+                        WidthRequest="100"
+                        HorizontalOptions="Start"
+                        Margin="0,20,0,0"/>
+            </StackLayout>
+        </Frame>
 
         <!-- Footer Button -->
         <Button Text="Look for bookings"
@@ -58,6 +70,5 @@
                 Margin="20"
                 WidthRequest="200"
                 Grid.Row="2" />
-        
     </Grid>
 </ContentPage>
