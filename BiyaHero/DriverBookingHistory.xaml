@@ -1,0 +1,97 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverBookingHistory"
+             BackgroundColor="#009866">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Title -->
+            <Label Text="Booking History"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,10" />
+
+            <!-- Booking List Container -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="10"
+                   Margin="0,10,0,10">
+                <StackLayout Spacing="10">
+                    <!-- Example of Booking Item -->
+                    <StackLayout Orientation="Horizontal" Padding="5" Spacing="10">
+                        <!-- Icon -->
+                        <Image Source="icon_location.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+
+                        <!-- Booking Details -->
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            <Label Text="BGC - Cubao"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black" />
+                            <Label Text="05 Tues, September 2024"
+                                   FontSize="12"
+                                   TextColor="Gray" />
+                        </StackLayout>
+
+                        <!-- Price -->
+                        <Label Text="P450"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#009866"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Divider -->
+                    <BoxView HeightRequest="1" BackgroundColor="#E0E0E0" />
+
+                    <!-- Repeatable Booking Item -->
+                    <StackLayout Orientation="Horizontal" Padding="5" Spacing="10">
+                        <Image Source="icon_location.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            <Label Text="PLM - Taft Ave."
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="Black" />
+                            <Label Text="11 Mon, September 2024"
+                                   FontSize="12"
+                                   TextColor="Gray" />
+                        </StackLayout>
+                        <Label Text="P350"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#009866"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Divider -->
+                    <BoxView HeightRequest="1" BackgroundColor="#E0E0E0" />
+                    <StackLayout Orientation="Horizontal" Padding="5" Spacing="10">
+                        <Image Source="icon_location.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            <Label Text="Marikina - Antipolo"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextColor="Black" />
+                            <Label Text="12 Tues, September 2024"
+               FontSize="12"
+               TextColor="Gray" />
+                        </StackLayout>
+                        <Label Text="P50"
+           FontSize="16"
+           FontAttributes="Bold"
+           TextColor="#009866"
+           VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Divider -->
+                    <BoxView HeightRequest="1" BackgroundColor="#E0E0E0" />
+                    <!-- Additional Booking Items -->
+                    
+                    <!-- Repeat the structure above for each booking -->
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

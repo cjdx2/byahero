@@ -75,7 +75,8 @@
                             CornerRadius="25"
                             FontSize="15"
                             Margin="0,20,0,10"
-                            HeightRequest="45" />
+                            HeightRequest="45"
+                            Clicked="OnBookingHistoryClicked"/>
 
                     <Button Text="Edit Profile"
                             BackgroundColor="White"

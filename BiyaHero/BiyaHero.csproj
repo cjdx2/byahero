@@ -119,6 +119,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="DriverBookingHistory.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="DriverHomepage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

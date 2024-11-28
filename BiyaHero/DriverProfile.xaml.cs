@@ -6,4 +6,9 @@ public partial class DriverProfile : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void OnBookingHistoryClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new DriverBookingHistory());
+    }
 }
