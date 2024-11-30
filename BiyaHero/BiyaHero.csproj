@@ -89,6 +89,9 @@
 	  <Compile Update="DriverTransactionHistoryPage.xaml.cs">
 	    <DependentUpon>DriverTransactionHistoryPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="BookingDetailsPage.xaml.cs">
+	    <DependentUpon>BookingDetailsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="PaymentMethodsPage.xaml.cs">
 	    <DependentUpon>PaymentMethodsPage.xaml</DependentUpon>
 	  </Compile>
@@ -141,6 +144,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="DriverTransactionHistoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BookingDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PaymentMethodsPage.xaml">

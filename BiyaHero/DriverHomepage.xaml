@@ -75,13 +75,14 @@
 
         <!-- Footer Button -->
         <Button Text="Look for bookings"
-                BackgroundColor="#008b5c"
-                TextColor="White"
-                VerticalOptions="End"
-                HorizontalOptions="Center"
-                CornerRadius="10"
-                Margin="20"
-                WidthRequest="200"
-                Grid.Row="2" />
+        BackgroundColor="#008b5c"
+        TextColor="White"
+        VerticalOptions="End"
+        HorizontalOptions="Center"
+        CornerRadius="10"
+        Margin="20"
+        WidthRequest="200"
+        Clicked="OnLookForBookingsClicked" />
+
     </Grid>
 </ContentPage>

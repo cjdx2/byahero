@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.BookingDetailsPage"
+             BackgroundColor="White">
+
+    <StackLayout Padding="20">
+        <Label Text="Bookings" FontSize="20" FontAttributes="Bold" />
+        <CollectionView x:Name="BookingsCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding FirstName}" FontAttributes="Bold" />
+                        <Label Text="{Binding LastName}" />
+                        <Label Text="{Binding Email}" />
+                        <Label Text="{Binding From}" />
+                        <Label Text="{Binding To}" />
+                        <Label Text="{Binding Distance}"/>
+                        <Label Text="{Binding Price}" />
+                        <Label Text="{Binding PaymentMethod}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
