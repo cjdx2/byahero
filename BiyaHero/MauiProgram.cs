@@ -23,6 +23,8 @@ namespace BiyaHero
                 });
 #if DEBUG
             builder.Logging.AddDebug();
+
+
 #endif
 
             // Remove underline from Entry on Android

@@ -22,6 +22,8 @@ namespace BiyaHero.Services
                 _database.CreateTableAsync<User>().Wait();
                 _database.CreateTableAsync<Driver>().Wait();
                 _database.CreateTableAsync<Report>().Wait();
+                _database.CreateTableAsync<Trip>().Wait();
+
 
                 Console.WriteLine($"Database created at: {dbPath}");
             }
@@ -156,5 +158,19 @@ namespace BiyaHero.Services
         {
             return _database.Table<Report>().Where(r => r.Status == status).ToListAsync();
         }
+
+                // Insert a trip record
+        public Task<int> AddTripAsync(Trip trip)
+        {
+            return _database.InsertAsync(trip);
+        }
+
+        // Get all trip records
+        public Task<List<Trip>> GetTripsAsync()
+        {
+            return _database.Table<Trip>().ToListAsync();
+        }
+
+
     }
 }

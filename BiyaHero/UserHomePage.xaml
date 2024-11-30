@@ -43,43 +43,65 @@
         </StackLayout>
 
         <!-- Button Section -->
-        <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="300">
-
-            <!-- Input Field for Location -->
-            <Frame HasShadow="False" BorderColor="#13a073" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,10,10,2" >
+        <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="400">
+            <!-- "From" Dropdown -->
+            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="100" CornerRadius="10" Padding="5" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
                 <HorizontalStackLayout Margin="10,0,0,0" >
-                    <Image Source="location_circle.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
-                    <Entry Placeholder="Enter your location" Margin="10,0,0,0" WidthRequest="400"/>
+                    <Image Source="location_circle.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
+                    <Picker Title="Select Location"  
+                        ItemsSource="{Binding Places}"
+                        SelectedItem="{Binding SelectedFrom}" 
+                        Margin="10,0,0,0" WidthRequest="400"/>
+
+                    <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
+                    <!-- "To" Dropdown -->
+                    <Picker Title="Select Destination"
+                    ItemsSource="{Binding Places}"
+                    SelectedItem="{Binding SelectedTo}" 
+                    Margin="10,0,0,0" WidthRequest="400"/>
                 </HorizontalStackLayout>
             </Frame>
 
-            <!-- Input Field for Destination -->
-            <Frame HasShadow="False" BorderColor="#13a073" HeightRequest="50" CornerRadius="10" Padding="5" Margin="10,2,10,10">
+            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="100" CornerRadius="10" Padding="5" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
                 <HorizontalStackLayout Margin="10,0,0,0" >
-                    <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="20" VerticalOptions="Center"/>
-                    <Entry Placeholder="Enter your destination" Margin="10,0,0,0" WidthRequest="400"/>
+                    <Image Source="pngwing.com.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
+                    <!-- Payment Method Picker -->
+                    <Picker Title="Mode of Payment"
+                ItemsSource="{Binding PaymentMethods}"
+                SelectedItem="{Binding SelectedPaymentMethod}"
+                    Margin="10,0,0,0" WidthRequest="400"/>
                 </HorizontalStackLayout>
             </Frame>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <!-- Button to Calculate Price -->
+                <Button Text="Show Price"
+                    Clicked="OnGetPriceClicked"
+                    Margin="10,10,10,10"
+                    FontAttributes="Bold"
+                    BackgroundColor="#0c7151"
+                    HeightRequest="80"
+                    CornerRadius="10"
+                    WidthRequest="500"
+                    HorizontalOptions="StartAndExpand"/>
 
-            <Button Text="See on Maps" 
+                <Button Text="See on Maps" 
                     Clicked="OnMapButtonClicked"
                     Margin="10,10,10,10"
-                    HorizontalOptions="FillAndExpand"      
                     FontAttributes="Bold"
                     BackgroundColor="#0c7151"
-                    TextColor="white"
-                    HeightRequest="50"
-                    CornerRadius="10"/>
-
-            <Button Text="Payment Methods" 
-                    Clicked="OnPaymentMethodsButtonClicked"
-                    Margin="10,10,10,10"
-                    HorizontalOptions="Start"      
-                    FontAttributes="Bold"
-                    BackgroundColor="#0c7151"
-                    HeightRequest="50"
                     CornerRadius="10"
-                    WidthRequest="200"/>        
+                    WidthRequest="480"
+                    HorizontalOptions="EndAndExpand"/>
+            </Grid>
+
+
+
+
         </StackLayout>
 
         <!-- Footer Section with Navigation Bar -->
@@ -90,9 +112,13 @@
             </Grid.ColumnDefinitions>
 
             <!-- Label aligned to the left -->
-            <Label Text="0.00 KM" Grid.Column="0" HorizontalOptions="Start" TextColor="White" FontAttributes="Bold"/>
+            <Label Text="{Binding DistanceResult}" HorizontalOptions="Start" TextColor="White" FontAttributes="Bold"/>
+            <!-- Display Distance -->
             <!-- Label aligned to the right -->
-            <Label Text="₱ 0.00" Grid.Column="1" HorizontalOptions="End" TextColor="White" FontAttributes="Bold"/>
+            <Label Text="{Binding PriceResult}" HorizontalOptions="End" TextColor="White" FontAttributes="Bold"/>
+
+            <!-- Display Payment Method -->
+            <Label Text="{Binding PaymentMethodResult}" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
         </Grid>
 
         <!-- Button Section -->
@@ -103,7 +129,8 @@
                     FontAttributes="Bold"
                     BackgroundColor="#0c7151"
                     HeightRequest="50"
-                    CornerRadius="10"/>
+                    CornerRadius="10"
+                    Clicked="OnSaveTripClicked"/>
         </StackLayout>
 
         <!-- Sidebar -->

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FirebaseCredentials", "FirebaseCredentials", "{63B5E164-0271-4EFF-8121-A1BB8CFF7200}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\User\Downloads\biyahero-b6e78-firebase-adminsdk-s6m16-e1db650ff1.json = C:\Users\User\Downloads\biyahero-b6e78-firebase-adminsdk-s6m16-e1db650ff1.json
+		..\..\..\..\User\Downloads\biyahero-b6e78-firebase-adminsdk-s6m16-e1db650ff1.json = ..\..\..\..\User\Downloads\biyahero-b6e78-firebase-adminsdk-s6m16-e1db650ff1.json
 	EndProjectSection
 EndProject
 Global

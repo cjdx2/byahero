@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Maui.Controls;
 
 namespace BiyaHero
@@ -9,7 +9,17 @@ namespace BiyaHero
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = new MainPageViewModel();
 
+        }
+
+        // Button click event handler
+        private void OnGetPriceClicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainPageViewModel)BindingContext;
+
+            // Trigger the price calculation in ViewModel
+            viewModel.UpdateDistanceAndPrice();
         }
 
         private async void OnMapButtonClicked(object sender, EventArgs e)
@@ -61,5 +71,35 @@ namespace BiyaHero
             // Navigate to the PaymentMethodsPage
             await Navigation.PushAsync(new PaymentMethodsPage());
         }
+
+        private async void OnSaveTripClicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainPageViewModel)BindingContext;
+
+            if (!string.IsNullOrEmpty(viewModel.SelectedFrom) &&
+                !string.IsNullOrEmpty(viewModel.SelectedTo) &&
+                !string.IsNullOrEmpty(viewModel.DistanceResult) &&
+                !string.IsNullOrEmpty(viewModel.PriceResult))
+            {
+                var distance = double.Parse(viewModel.DistanceResult.Replace("Distance: ", "").Replace(" kilometer.", ""));
+                var price = double.Parse(viewModel.PriceResult.Replace("Price: ₱", ""));
+
+                var trip = new Trip
+                {
+                    From = viewModel.SelectedFrom,
+                    To = viewModel.SelectedTo,
+                    Distance = distance,
+                    Price = price
+                };
+
+                await DisplayAlert("Success", "Book successfully!", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Error", "Please select both places and calculate the price first.", "OK");
+            }
+
+        }
+
     }
 }
