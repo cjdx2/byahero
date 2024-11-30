@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
+using BiyaHero.Services;
 
 namespace BiyaHero
 {
@@ -79,7 +80,8 @@ namespace BiyaHero
             if (!string.IsNullOrEmpty(viewModel.SelectedFrom) &&
                 !string.IsNullOrEmpty(viewModel.SelectedTo) &&
                 !string.IsNullOrEmpty(viewModel.DistanceResult) &&
-                !string.IsNullOrEmpty(viewModel.PriceResult))
+                !string.IsNullOrEmpty(viewModel.PriceResult) &&
+                !string.IsNullOrEmpty(viewModel.SelectedPaymentMethod))
             {
                 var distance = double.Parse(viewModel.DistanceResult.Replace("Distance: ", "").Replace(" kilometer.", ""));
                 var price = double.Parse(viewModel.PriceResult.Replace("Price: ₱", ""));
@@ -88,17 +90,27 @@ namespace BiyaHero
                 {
                     From = viewModel.SelectedFrom,
                     To = viewModel.SelectedTo,
+                    PaymentMethod = viewModel.SelectedPaymentMethod,
                     Distance = distance,
                     Price = price
                 };
 
-                await DisplayAlert("Success", "Book successfully!", "OK");
+                try
+                {
+                    var dbService = new DatabaseService();
+                    await dbService.AddTripAsync(trip);
+
+                    await DisplayAlert("Success", "Trip has been successfully booked and saved!", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"Failed to save the trip: {ex.Message}", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Error", "Please select both places and calculate the price first.", "OK");
+                await DisplayAlert("Error", "Please complete all fields and calculate the price before booking.", "OK");
             }
-
         }
 
     }
