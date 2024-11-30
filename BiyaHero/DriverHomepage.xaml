@@ -30,35 +30,8 @@
                    VerticalOptions="Center" 
                    HorizontalOptions="CenterAndExpand" 
                    HeightRequest="22" />
-            
+
         </StackLayout>
-
-        <VerticalStackLayout Padding="20" Spacing="15">
-
-            <Label Text="Available Bookings"
-               FontSize="20"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
-            <CollectionView ItemsSource="{Binding Bookings}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Padding="10" Margin="0,5" BackgroundColor="LightGray">
-                            <Label Text="{Binding PassengerName}" FontSize="16" FontAttributes="Bold" />
-                            <Label Text="{Binding From}" FontSize="14" />
-                            <Label Text="{Binding To}" FontSize="14" />
-                            <Label Text="{Binding Distance, StringFormat='Distance: {0} miles'}" FontSize="14" />
-                            <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="14" />
-
-                            <Button Text="Pick Up" 
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectBookingCommand}"
-                                CommandParameter="{Binding .}" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </VerticalStackLayout>
 
         <!-- Sidebar for Navigation -->
         <Frame x:Name="DriverMenuPopup"
