@@ -71,7 +71,7 @@
                     Clicked="OnEditUserProfileClicked" />
 
                 <Button
-                    Text="Transaction History"
+                    Text="Booking History"
                     FontSize="14"
                     FontAttributes="Bold"
                     TextColor="#0c7151"

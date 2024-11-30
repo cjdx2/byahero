@@ -50,6 +50,20 @@ public partial class UserProfileEdit : ContentPage
             // Update email only
             _currentUser.Email = EmailEntry.Text?.Trim();
 
+            // Check if password is provided, and update it
+            string newPassword = NewPasswordEntry.Text?.Trim();
+            string confirmPassword = ConfirmPasswordEntry.Text?.Trim();
+
+            if (!string.IsNullOrEmpty(newPassword) && newPassword == confirmPassword)
+            {
+                _currentUser.Password = newPassword; // Ideally, hash the password before saving
+            }
+            else if (!string.IsNullOrEmpty(newPassword) && newPassword != confirmPassword)
+            {
+                await DisplayAlert("Error", "Passwords do not match. Please try again.", "OK");
+                return;
+            }
+
             // Save to database
             int result = await _databaseService.UpdateUserAsync(_currentUser);
             if (result > 0)
@@ -80,5 +94,5 @@ public partial class UserProfileEdit : ContentPage
         {
             await DisplayAlert("Error", "Unable to save changes. User not found.", "OK");
         }
-}
+    }
 }
