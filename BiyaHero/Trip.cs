@@ -17,6 +17,9 @@ namespace BiyaHero
         public string PaymentMethod { get; set; }
         public double Distance { get; set; }
         public double Price { get; set; }
-
+        public string FirstName { get; set; }       // Added field
+        public string LastName { get; set; }  // Added field
+        public string Email { get; set; }     // Added field
     }
+
 }

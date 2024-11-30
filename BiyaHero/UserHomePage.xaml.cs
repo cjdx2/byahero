@@ -86,18 +86,29 @@ namespace BiyaHero
                 var distance = double.Parse(viewModel.DistanceResult.Replace("Distance: ", "").Replace(" kilometer.", ""));
                 var price = double.Parse(viewModel.PriceResult.Replace("Price: ₱", ""));
 
-                var trip = new Trip
-                {
-                    From = viewModel.SelectedFrom,
-                    To = viewModel.SelectedTo,
-                    PaymentMethod = viewModel.SelectedPaymentMethod,
-                    Distance = distance,
-                    Price = price
-                };
-
                 try
                 {
                     var dbService = new DatabaseService();
+                    var currentUser = await dbService.GetCurrentUserAsync(); // Get the current user
+
+                    if (currentUser == null)
+                    {
+                        await DisplayAlert("Error", "No logged-in user found. Please log in.", "OK");
+                        return;
+                    }
+
+                    var trip = new Trip
+                    {
+                        From = viewModel.SelectedFrom,
+                        To = viewModel.SelectedTo,
+                        PaymentMethod = viewModel.SelectedPaymentMethod,
+                        Distance = distance,
+                        Price = price,
+                        FirstName = currentUser.FirstName,          // Assign name
+                        LastName = currentUser.LastName,  // Assign last name
+                        Email = currentUser.Email         // Assign email
+                    };
+
                     await dbService.AddTripAsync(trip);
 
                     await DisplayAlert("Success", "Trip has been successfully booked and saved!", "OK");
@@ -112,6 +123,7 @@ namespace BiyaHero
                 await DisplayAlert("Error", "Please complete all fields and calculate the price before booking.", "OK");
             }
         }
+
 
     }
 }
