@@ -67,6 +67,7 @@
                     HorizontalOptions="FillAndExpand"      
                     FontAttributes="Bold"
                     BackgroundColor="#0c7151"
+                    TextColor="white"
                     HeightRequest="50"
                     CornerRadius="10"/>
 

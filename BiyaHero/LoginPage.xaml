@@ -64,16 +64,18 @@
                 Margin="0,10,0,20"
                 HorizontalOptions="Fill"   
                 FontAttributes="Bold"
+                TextColor="White"
                 BackgroundColor="#0c7151"
                 Clicked="OnLoginButtonClicked"
-                CornerRadius="10"/>
+                CornerRadius="10"/>s
         
         <!-- Link to Register Page -->
         <HorizontalStackLayout Margin="0,10,0,20" HorizontalOptions="Center">
-            <Label Margin="0,0,5,0" VerticalTextAlignment="Center" TextColor="#084934">Don't have an account?</Label>
+            <Label Margin="0,0,5,0" VerticalTextAlignment="Center" TextColor="#000000">Don't have an account?</Label>
             <Button Text="Register now!" 
                     FontAttributes="Bold"
                     Padding="0"
+                    TextColor="white"
                     Background="Transparent"
                     Clicked="OnRegisterButtonClicked"/>
         </HorizontalStackLayout>

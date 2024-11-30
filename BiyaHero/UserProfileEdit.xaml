@@ -23,7 +23,8 @@
                    TextColor="Black"
                    BackgroundColor="White"
                    HeightRequest="10"
-                   FontSize="14" />
+                   FontSize="14" 
+                   IsReadOnly="True"/>
         </Frame>
 
         <!-- First Name -->
@@ -38,7 +39,8 @@
                    BackgroundColor="White"
                    TextColor="Black"
                    HeightRequest="40"
-                   FontSize="14" />
+                   FontSize="14" 
+                   IsReadOnly="True"/>
         </Frame>
 
         <!-- Last Name -->
@@ -53,7 +55,8 @@
                    TextColor="Black"
                    BackgroundColor="White"
                    HeightRequest="40"
-                   FontSize="14" />
+                   FontSize="14" 
+                   IsReadOnly="True"/>
         </Frame>
 
         <!-- Email Address -->
