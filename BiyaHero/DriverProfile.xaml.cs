@@ -26,13 +26,11 @@ public partial class DriverProfile : ContentPage
                 {
                     DriverNameLabel.Text = $"{driver.FirstName} {driver.LastName}";
                     DriverEmailLabel.Text = driver.Email;
-                    LicenseIdLabel.Text = driver.VehiclePlateNumber;
+                    VehiclePlateNumberLabel.Text = driver.VehiclePlateNumber;
                     VehicleTypeLabel.Text = driver.VehicleType;
 
-                    if (driver.Photo != null)
-                    {
-                        DriverImage.Source = ImageSource.FromStream(() => new MemoryStream(driver.Photo));
-                    }
+                    // Use the default profile photo from the Resources/Images folder
+                    DriverImage.Source = "icon_profilebtn2.png";
                 }
             }
         }
@@ -42,8 +40,47 @@ public partial class DriverProfile : ContentPage
         }
     }
 
+
     private async void OnBookingHistoryClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new DriverBookingHistory());
+    }
+
+    private async void OnChangePasswordClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            string driverEmail = UserSession.GetUserEmail();
+            if (!string.IsNullOrEmpty(driverEmail))
+            {
+                string newPassword = await DisplayPromptAsync(
+                    "Change Password",
+                    "Enter your new password:",
+                    "OK",
+                    "Cancel",
+                    keyboard: Keyboard.Text);
+
+                if (!string.IsNullOrEmpty(newPassword))
+                {
+                    Driver driver = await _databaseService.GetDriverByEmailAsync(driverEmail);
+                    if (driver != null)
+                    {
+                        // Update the password
+                        driver.Password = newPassword;
+                        await _databaseService.UpdateDriverAsync(driver);
+
+                        await DisplayAlert("Success", "Password changed successfully.", "OK");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Cancelled", "Password change cancelled.", "OK");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Unable to change password: {ex.Message}", "OK");
+        }
     }
 }

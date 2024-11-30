@@ -47,14 +47,14 @@
                                HorizontalTextAlignment="Center" />
                     </StackLayout>
 
-                    <!-- License ID -->
-                    <Label Text="License ID:"
+                    <!-- Vehicle Plate Number -->
+                    <Label Text="Vehicle Plate Number:"
                            FontSize="14"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center" 
                            TextColor="#009866" />
-                    <Label x:Name="LicenseIdLabel"
-                           Text="License ID Placeholder"
+                    <Label x:Name="VehiclePlateNumberLabel"
+                           Text="Vehicle Plate Number Placeholder"
                            FontSize="14"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center" 
@@ -83,15 +83,16 @@
                             HeightRequest="45"
                             Clicked="OnBookingHistoryClicked"/>
 
-                    <Button Text="Edit Profile"
-                            BackgroundColor="White"
-                            TextColor="#009866"
-                            CornerRadius="25"
-                            FontSize="16"
-                            Margin="0,0,0,0"
-                            HeightRequest="45"
-                            BorderColor="#009866"
-                            BorderWidth="2" />
+                    <Button Text="Change Password"
+                    BackgroundColor="White"
+                    TextColor="#009866"
+                    CornerRadius="25"
+                    FontSize="16"
+                    Margin="0,0,0,0"
+                    HeightRequest="45"
+                    BorderColor="#009866"
+                    BorderWidth="2"
+                    Clicked="OnChangePasswordClicked" />
                 </StackLayout>
             </Frame>
         </StackLayout>
