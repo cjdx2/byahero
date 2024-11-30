@@ -3,23 +3,34 @@
              x:Class="BiyaHero.BookingDetailsPage"
              BackgroundColor="White">
 
-    <StackLayout Padding="20">
-        <Label Text="Bookings" FontSize="20" FontAttributes="Bold" />
-        <CollectionView x:Name="BookingsCollectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding FirstName}" FontAttributes="Bold" />
-                        <Label Text="{Binding LastName}" />
-                        <Label Text="{Binding Email}" />
-                        <Label Text="{Binding From}" />
-                        <Label Text="{Binding To}" />
-                        <Label Text="{Binding Distance}"/>
-                        <Label Text="{Binding Price}" />
-                        <Label Text="{Binding PaymentMethod}" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+    <ScrollView>
+        <!-- Add ScrollView to enable scrolling -->
+        <StackLayout Padding="20">
+            <Label Text="Bookings" FontSize="20" FontAttributes="Bold" />
+            <CollectionView x:Name="BookingsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding FirstName}" FontAttributes="Bold" />
+                            <Label Text="{Binding LastName}" />
+                            <Label Text="{Binding Email}" />
+                            <Label Text="{Binding From}" />
+                            <Label Text="{Binding To}" />
+
+                            <!-- Add km to the distance -->
+                            <Label Text="{Binding Distance, StringFormat='{0} km'}" />
+
+                            <Label Text="{Binding Price}" />
+                            <Label Text="{Binding PaymentMethod}" />
+
+                            <!-- Add Accept button for each booking -->
+                            <Button Text="Accept Booking" 
+                                    Command="{Binding BindingContext.AcceptBookingCommand, Source={x:Reference BookingsCollectionView}}" 
+                                    CommandParameter="{Binding}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
