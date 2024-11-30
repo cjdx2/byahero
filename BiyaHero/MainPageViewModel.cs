@@ -151,7 +151,7 @@ namespace BiyaHero
                 }
                 else
                 {
-                    DistanceResult = "Erro!";
+                    DistanceResult = "Error!";
                     PriceResult = "Error!";
                 }
             }

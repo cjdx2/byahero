@@ -30,14 +30,15 @@
                    VerticalOptions="Center" 
                    HorizontalOptions="CenterAndExpand" 
                    HeightRequest="22" />
+            
         </StackLayout>
 
-        <StackLayout Grid.Row="1" Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="15">
 
             <Label Text="Available Bookings"
-         FontSize="20"
-         FontAttributes="Bold"
-         HorizontalOptions="Center" />
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
 
             <CollectionView ItemsSource="{Binding Bookings}">
                 <CollectionView.ItemTemplate>
@@ -50,16 +51,14 @@
                             <Label Text="{Binding Price, StringFormat='Price: ${0:F2}'}" FontSize="14" />
 
                             <Button Text="Pick Up" 
-                          Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectBookingCommand}"
-                          CommandParameter="{Binding .}" />
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectBookingCommand}"
+                                CommandParameter="{Binding .}" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-        </StackLayout>
-
-
+        </VerticalStackLayout>
 
         <!-- Sidebar for Navigation -->
         <Frame x:Name="DriverMenuPopup"
