@@ -64,6 +64,10 @@
 	  <None Remove="Resources\Images\logo_biyahero_word.png" />
 	  <None Remove="Resources\Images\logo_lock.png" />
 	  <None Remove="Resources\Images\logo_mail.png" />
+	  <None Remove="Resources\Images\logo_moneh.png" />
+	  <None Remove="Resources\Images\logo_pinpoint.png" />
+	  <None Remove="Resources\Images\logo_username.png" />
+	  <None Remove="Resources\Images\logo_write.png" />
 	</ItemGroup>
 
 	<ItemGroup>

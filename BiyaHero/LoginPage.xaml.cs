@@ -72,4 +72,10 @@ public partial class LoginPage : ContentPage
     {
         await Navigation.PushAsync(new DriverRegisterPage());
     }
+
+    private async void OnForgotButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new UserHomePage());
+    }
+
 }

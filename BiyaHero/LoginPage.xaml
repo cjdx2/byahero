@@ -2,19 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.LoginPage" 
-             Title="">
+             Title=""
+             Background="#13a073">
 
     <VerticalStackLayout
         Background="#13a073"
-        Padding="30">
+        Padding="0"
+        MaximumHeightRequest="800">
 
-        <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0" />
+        <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0,80,0,100"  />
+        <Frame
+            CornerRadius="50"
+            Background="#fbf6f8"
+            BorderColor="#fbf6f8">
+            
+        
+        <VerticalStackLayout
+            Background="#fbf6f8"
+            HeightRequest="600"
+            Padding="10">
 
+               <Label TextColor="#13a073"
+                      FontSize="30"
+                      FontAttributes="Bold"
+                   
+                   >Login
+               
+               </Label>
         <!-- Input Field for Email -->
         <Frame HasShadow="False" 
                BackgroundColor="White" 
-               BorderColor="Transparent" 
-               CornerRadius="10" 
+               BorderColor="#abaaaa" 
+               CornerRadius="30" 
                Padding="5" 
                Margin="0,20,0,5" 
                HeightRequest="50">
@@ -37,9 +56,9 @@
         <!-- Input Field for Password -->
         <Frame HasShadow="False" 
                BackgroundColor="White" 
-               BorderColor="Transparent" 
+               BorderColor="#abaaaa" 
                HeightRequest="50" 
-               CornerRadius="10" 
+               CornerRadius="30" 
                Padding="5" 
                Margin="0,0,0,20">
             <HorizontalStackLayout Margin="10,0,10,0" VerticalOptions="Center">
@@ -60,24 +79,56 @@
 
 
         <!-- Button to Login -->
-        <Button Text="LOGIN" 
-                Margin="0,10,0,20"
+        <Button Text="Login" 
+                Margin="0,10,0,10"
                 HorizontalOptions="Fill"   
                 FontAttributes="Bold"
                 TextColor="White"
-                BackgroundColor="#0c7151"
+                BackgroundColor="#13a073"
                 Clicked="OnLoginButtonClicked"
-                CornerRadius="10"/>
+                CornerRadius="30"/>
+                <Grid ColumnSpacing="10" VerticalOptions="Center" Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Fills available space -->
+                        <ColumnDefinition Width="Auto" />
+                        <!-- Fits content -->
+                        <ColumnDefinition Width="*" />
+                        <!-- Fills available space -->
+                    </Grid.ColumnDefinitions>
 
-        <!-- Link to Register Page -->
-        <HorizontalStackLayout Margin="0,10,0,20" HorizontalOptions="Center">
-            <Label Margin="0,0,5,0" VerticalTextAlignment="Center" TextColor="#000000">Don't have an account?</Label>
-            <Button Text="Register now!" 
+                    <!-- First Line -->
+                    <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
+
+                    <!-- Label -->
+                    <Label Grid.Column="1" Text="OR" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" TextColor="#abaaaa" />
+
+                    <!-- Second Line -->
+                    <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
+                </Grid>
+
+                <!-- Button to Register Page -->
+        <Button Text="Create an Account" 
+        Margin="0,10,0,0"
+        HorizontalOptions="Fill"   
+        FontAttributes="Bold"
+        TextColor="#13a073"
+        BackgroundColor="Transparent"
+        Clicked="OnRegisterButtonClicked"
+        CornerRadius="30"
+        BorderColor="#abaaaa"
+        BorderWidth="1"/>
+
+            <!-- Link to Forgot Password -->
+            <HorizontalStackLayout Margin="0,0,0,20" HorizontalOptions="Center">
+                <Button Text="Forgot Password?" 
                     FontAttributes="Bold"
                     Padding="0"
-                    TextColor="White"
+                    TextColor="#abaaaa"
                     BackgroundColor="Transparent"
-                    Clicked="OnRegisterButtonClicked"/>
+                    Clicked="OnForgotButtonClicked"/>
         </HorizontalStackLayout>
+        </VerticalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>

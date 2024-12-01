@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
              x:Class="BiyaHero.UserHomePage"
-             Title="UserHomePage">
+             Title="UserHomePage"
+             Background="White">
     <Grid >
         <!-- Define rows for Header, Content, and Footer -->
         <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
             <!-- Header -->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Content -->
+            <RowDefinition Height="Auto"/>
             <!-- Content -->
             <RowDefinition Height="Auto"/>
             <!-- Footer -->
@@ -21,6 +24,7 @@
         <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10" BackgroundColor="#13a073" HeightRequest="60">
             <!-- Navigation Button -->
             <ImageButton Source="icon_navigationbtn.png" 
+                 Margin="10,0,0,0"
                  HeightRequest="22" 
                  VerticalOptions="Center" 
                  HorizontalOptions="Start" 
@@ -42,29 +46,33 @@
                    Clicked="OnProfileButtonClicked"/>
         </StackLayout>
 
+        <VerticalStackLayout Margin="10,20,10,0" Grid.Row="1" HeightRequest="500">
         <!-- Button Section -->
-        <StackLayout Grid.Row="1" Orientation="Vertical" HeightRequest="400">
+        
             <!-- "From" Dropdown -->
-            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="100" CornerRadius="10" Padding="5" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
-                <HorizontalStackLayout Margin="10,0,0,0" >
-                    <Image Source="location_circle.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
-                    <Picker Title="Select Location"  
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Image Source="logo_pinpoint.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
+                <Picker Title="Select Location"  
                         ItemsSource="{Binding Places}"
                         SelectedItem="{Binding SelectedFrom}" 
-                        Margin="10,0,0,0" WidthRequest="400"/>
-
-                    <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
-                    <!-- "To" Dropdown -->
+                        Margin="10,0,0,0" WidthRequest="400" HeightRequest="30"/>
+                </HorizontalStackLayout>
+            </Frame>
+            <!-- "To" Dropdown -->
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center">
+            <HorizontalStackLayout>
+                <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
                     <Picker Title="Select Destination"
                     ItemsSource="{Binding Places}"
                     SelectedItem="{Binding SelectedTo}" 
                     Margin="10,0,0,0" WidthRequest="400"/>
-                </HorizontalStackLayout>
+                
+            </HorizontalStackLayout>
             </Frame>
-
-            <Frame HasShadow="False" BorderColor="Transparent" HeightRequest="100" CornerRadius="10" Padding="5" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
-                <HorizontalStackLayout Margin="10,0,0,0" >
-                    <Image Source="pngwing.com.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center"/>
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Image Source="logo_moneh.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
                     <!-- Payment Method Picker -->
                     <Picker Title="Mode of Payment"
                 ItemsSource="{Binding PaymentMethods}"
@@ -72,57 +80,52 @@
                     Margin="10,0,0,0" WidthRequest="400"/>
                 </HorizontalStackLayout>
             </Frame>
+        </VerticalStackLayout>
+        <Frame Grid.Row="2" Padding="0" CornerRadius="30" BorderColor="Transparent" >
+        <HorizontalStackLayout Margin="0,0,0,0" HeightRequest="100" HorizontalOptions="Center">
             
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <!-- Button to Calculate Price -->
-                <Button Text="Show Price"
-                    Clicked="OnGetPriceClicked"
-                    Margin="10,10,10,10"
-                    FontAttributes="Bold"
-                    BackgroundColor="#0c7151"
-                    HeightRequest="80"
-                    CornerRadius="10"
-                    WidthRequest="500"
-                    HorizontalOptions="StartAndExpand"/>
-
-                <Button Text="See on Maps" 
+            <!-- Button to Calculate Price -->
+            <Button Text="Show Price"
+                TextColor="#13a073"
+                BorderColor="#13a073"
+                BorderWidth="1"
+                Clicked="OnGetPriceClicked"
+                Margin="0,0,0,0"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                CornerRadius="30"
+                WidthRequest="170"
+                HorizontalOptions="Center"/>
+            <!-- Button to Show Maps -->
+            <Button Text="See on Maps" 
                     Clicked="OnMapButtonClicked"
-                    Margin="10,10,10,10"
+                    Margin="10,0,0,0"
                     FontAttributes="Bold"
-                    BackgroundColor="#0c7151"
-                    CornerRadius="10"
-                    WidthRequest="480"
-                    HorizontalOptions="EndAndExpand"/>
-            </Grid>
-
-
-
-
-        </StackLayout>
-
+                    BackgroundColor="#13a073"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    WidthRequest="170"
+                    HorizontalOptions="Center"/>
+        </HorizontalStackLayout>
+        </Frame>
         <!-- Footer Section with Navigation Bar -->
-        <Grid Grid.Row="2" BackgroundColor="#13a073" Padding="10" HeightRequest="50">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
 
-            <!-- Label aligned to the left -->
-            <Label Text="{Binding DistanceResult}" HorizontalOptions="Start" TextColor="White" FontAttributes="Bold"/>
+        <VerticalStackLayout Grid.Row="3" BackgroundColor="#13a073" Padding="10" HeightRequest="90">
+            
+                <!-- Label aligned to the left -->
+                <Label Text="{Binding DistanceResult}" HorizontalOptions="Start" TextColor="White" FontAttributes="Bold"/>
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="CenterAndExpand">
+                <!-- Display Payment Method -->
+                <Label Text="{Binding PaymentMethodResult}" HorizontalOptions="Start" TextColor="White" FontAttributes="Bold"/>
+            
             <!-- Display Distance -->
-            <!-- Label aligned to the right -->
-            <Label Text="{Binding PriceResult}" HorizontalOptions="End" TextColor="White" FontAttributes="Bold"/>
-
-            <!-- Display Payment Method -->
-            <Label Text="{Binding PaymentMethodResult}" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
-        </Grid>
+                <Label Text="{Binding PriceResult}" HorizontalOptions="End" TextColor="White" FontAttributes="Bold" Grid.Column="1" />
+            </Grid>
+        </VerticalStackLayout>
 
         <!-- Button Section -->
-        <StackLayout Grid.Row="3" Orientation="Horizontal" BackgroundColor="#13a073" HeightRequest="60">
+        <StackLayout Grid.Row="4" Orientation="Horizontal" BackgroundColor="#13a073" HeightRequest="60">
             <Button Text="Book Biyahe" 
                     Margin="10,0,10,20"
                     HorizontalOptions="FillAndExpand"      
