@@ -72,19 +72,21 @@
                 
             </HorizontalStackLayout>
             </Frame>
-            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="white">
                 <HorizontalStackLayout>
                     <Image Source="logo_moneh.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
                     <!-- Payment Method Picker -->
                     <Picker Title="Mode of Payment"
                 ItemsSource="{Binding PaymentMethods}"
                 SelectedItem="{Binding SelectedPaymentMethod}"
-                    Margin="10,0,0,0" WidthRequest="400"/>
+                    Margin="10,0,0,0" WidthRequest="400"
+                            TextColor="Black"
+                            />
                 </HorizontalStackLayout>
             </Frame>
         </VerticalStackLayout>
-        <Frame Grid.Row="2" Padding="0" CornerRadius="30" BorderColor="Transparent" >
-        <HorizontalStackLayout Margin="0,0,0,0" HeightRequest="100" HorizontalOptions="Center">
+        <Frame Grid.Row="2" Padding="0" CornerRadius="30" BorderColor="Transparent" BackgroundColor="white">
+        <HorizontalStackLayout Margin="0,0,0,0" HeightRequest="100" HorizontalOptions="Center" BackgroundColor="white">
             
             <!-- Button to Calculate Price -->
             <Button Text="Show Price"
@@ -109,6 +111,7 @@
                     CornerRadius="30"
                     HeightRequest="50"
                     WidthRequest="170"
+                    TextColor="white"
                     HorizontalOptions="Center"/>
         </HorizontalStackLayout>
         </Frame>

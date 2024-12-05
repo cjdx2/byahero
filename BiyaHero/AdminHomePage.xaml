@@ -50,15 +50,6 @@
                         WidthRequest="160"
                         HorizontalOptions="Center"
                         Margin="0,0,20,10"/>
-
-                <Button Text="View Driver's Panel" 
-                        Clicked="OnDriverHomepage" 
-                        BackgroundColor="#13a073" 
-                        TextColor="White" 
-                        HeightRequest="40" 
-                        WidthRequest="160"
-                        HorizontalOptions="Center"
-                        Margin="0,0,20,10"/>
             </StackLayout>
         </Grid>
 
