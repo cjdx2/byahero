@@ -1,4 +1,6 @@
-﻿namespace BiyaHero
+﻿using BiyaHero.Services;
+
+namespace BiyaHero
 {
     public partial class App : Application
     {

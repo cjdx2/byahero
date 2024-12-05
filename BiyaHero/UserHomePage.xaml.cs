@@ -25,8 +25,14 @@ namespace BiyaHero
 
         private async void OnMapButtonClicked(object sender, EventArgs e)
         {
-            // Navigate to the Target Page
-            await Navigation.PushAsync(new MainPage());
+            var viewModel = (MainPageViewModel)BindingContext;
+
+            if (string.IsNullOrEmpty(viewModel.SelectedPaymentMethod)) {
+                await DisplayAlert("Missing payment method.", "Please select a payment method to proceed.", "Ok");
+                return;
+            }
+                // Navigate to the Target Page
+                await Navigation.PushAsync(new UserMap(viewModel.SelectedPaymentMethod));
         }
 
         // Toggle sidebar visibility when Menu button is clicked

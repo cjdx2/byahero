@@ -50,7 +50,8 @@
         <!-- Button Section -->
         
             <!-- "From" Dropdown -->
-            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center"
+                   IsVisible="False">
                 <HorizontalStackLayout>
                     <Image Source="logo_pinpoint.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
                 <Picker Title="Select Location"  
@@ -60,7 +61,8 @@
                 </HorizontalStackLayout>
             </Frame>
             <!-- "To" Dropdown -->
-            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame HasShadow="False" BorderColor="#abaaaa" HeightRequest="40" CornerRadius="30" Padding="0" Margin="10,10,10,0" VerticalOptions="Center" HorizontalOptions="Center"
+                   IsVisible="False">
             <HorizontalStackLayout>
                 <Image Source="logo_biyahero_round.png" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"/>
                     <Picker Title="Select Destination"
@@ -96,7 +98,8 @@
                 HeightRequest="50"
                 CornerRadius="30"
                 WidthRequest="170"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                    IsVisible="False"/>
             <!-- Button to Show Maps -->
             <Button Text="See on Maps" 
                     Clicked="OnMapButtonClicked"

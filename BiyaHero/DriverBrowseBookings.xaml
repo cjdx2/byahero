@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.DriverBrowseBookings"
+             Title="DriverBrowseBookings"
+             BackgroundColor="White">
+    <Grid>
+        <!-- Define grid rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Takes up remaining space for scrollable content -->
+            <RowDefinition Height="Auto" />
+            <!-- Button at the bottom -->
+        </Grid.RowDefinitions>
+
+        <!-- Scrollable content -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <Label Text="Select a booking"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       TextColor="Black"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="0, 15, 0 ,0"/>
+
+                <Label x:Name="BookingsNone"
+                       Text="No bookings available."
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       TextColor="Gray"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="0, 15, 0 ,0"
+                       IsVisible="False"/>           
+
+                <CollectionView ItemsSource="{Binding Bookings}" 
+                                SelectionMode="Single" 
+                                Margin="0, 15, 0, 0"
+                                x:Name="BookingCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="Gray" CornerRadius="10" Margin="10" BackgroundColor="White">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding riderName}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="16" 
+                                               TextColor="Black" 
+                                               HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding price}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="16" 
+                                               TextColor="Black" 
+                                               HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding distance}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="12" 
+                                               TextColor="Gray" 
+                                               Margin="0, 5, 0, 0"
+                                               HorizontalOptions="StartAndExpand"/>
+
+                                        <Label Text="{Binding paymentMethod}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="12" 
+                                               TextColor="Gray" 
+                                               Margin="0, 5, 0, 0"
+                                               HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+
+                                    <BoxView HeightRequest="1" 
+                                             BackgroundColor="LightGray" 
+                                             HorizontalOptions="FillAndExpand" 
+                                             Margin="0, 15" />
+
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="From" 
+                                               FontAttributes="Bold" 
+                                               FontSize="12" 
+                                               TextColor="Gray" />
+
+                                        <Label Text="{Binding originAddress}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="16" 
+                                               TextColor="Black"/>
+
+                                        <Label Text="To" 
+                                               FontAttributes="Bold" 
+                                               FontSize="12" 
+                                               TextColor="Gray" 
+                                               Margin="0, 15, 0, 0"/>
+
+                                        <Label Text="{Binding destinationAddress}"
+                                               FontAttributes="Bold" 
+                                               FontSize="16" 
+                                               TextColor="Black"/>
+                                    </StackLayout>
+
+                                    <Button Text="View Trip"
+                                            BackgroundColor="#0f9f72"
+                                            TextColor="White"
+                                            HorizontalOptions="End"
+                                            Margin="0, 10, 0 ,0"
+                                            Command="{Binding Path=BindingContext.ButtonClickedCommand, Source={x:Reference BookingCollectionView}}"
+                                            CommandParameter="{Binding .}"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Button at the bottom -->
+        <Button Text="Refresh"
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="#0f9f72"
+                TextColor="White"
+                Padding="25, 5"
+                Margin="0, 0, 0, 20"
+                Clicked="OnRefreshClicked"/>
+    </Grid>
+</ContentPage>

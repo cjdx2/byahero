@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.UserChat"
+             BackgroundColor="White">
+    <VerticalStackLayout VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <CollectionView ItemsSource="{Binding ChatLog}" 
+                SelectionMode="Single" 
+                Margin="0, 15, 0, 0"
+                x:Name="ChatCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="{Binding margin}" 
+                               CornerRadius="10" 
+                               Padding="15, 10" 
+                               BackgroundColor="{Binding backgroundColor}"
+                               BorderColor="Transparent"
+                               HorizontalOptions="{Binding horizontalOptions}">
+                            <Label Text="{Binding message}"
+                                   TextColor="{Binding textColor}"
+                                   BackgroundColor="{Binding backgroundColor}"
+                                   HorizontalTextAlignment="{Binding textAlignment}"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+            <HorizontalStackLayout Padding="10" Spacing="5">
+                <!-- Input field -->
+                <Entry x:Name="MessageEntry"
+                       Placeholder="Type your message..."
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Center" 
+                       TextColor="Black"/>
+
+                <!-- Send button -->
+                <Button x:Name="SendButton"
+                        Text="Send"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        BackgroundColor="DodgerBlue"
+                        TextColor="White" 
+                        Margin="15, 0, 0, 0"
+                        Clicked="OnSendClicked"/>        
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

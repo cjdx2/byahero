@@ -3,7 +3,6 @@ using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Graphics;
 using Firebase.Database;
 using FirebaseAdmin;
-using SkiaSharp.Views.Maui.Controls.Hosting;
 
 
 namespace BiyaHero
@@ -15,12 +14,11 @@ namespace BiyaHero
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseSkiaSharp(true)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                }).UseMauiMaps();
 #if DEBUG
             builder.Logging.AddDebug();
 

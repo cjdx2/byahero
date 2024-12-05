@@ -57,20 +57,22 @@ namespace BiyaHero
         }
         private async void OnLookForBookingsClicked(object sender, EventArgs e)
         {
-            try
-            {
-                // Fetch trips from the database
-                var trips = await _databaseService.GetTripsAsync();
+            //try
+            //{
+            //    // Fetch trips from the database
+            //    var trips = await _databaseService.GetTripsAsync();
 
-                // You can now navigate to a new page or update a list view on the current page
-                // For example, push a new page that shows the bookings
+            //    // You can now navigate to a new page or update a list view on the current page
+            //    // For example, push a new page that shows the bookings
 
-                await Navigation.PushAsync(new BookingDetailsPage(trips)); // pass trips to the new page
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", "Failed to load bookings.", "OK");
-            }
+            //    await Navigation.PushAsync(new BookingDetailsPage(trips)); // pass trips to the new page
+            //}
+            //catch (Exception ex)
+            //{
+            //    await DisplayAlert("Error", "Failed to load bookings.", "OK");
+            //}
+
+            await Navigation.PushAsync(new DriverBrowseBookings());
         }
     }
 }

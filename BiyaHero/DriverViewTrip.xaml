@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="BiyaHero.DriverViewTrip"
+             Title="DriverViewTrip">
+    <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="White">
+        <!-- Buttons Section -->
+        <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" 
+                 Padding="20, 20, 20, 20" 
+                 BackgroundColor="#fbf6f8"
+                 Spacing="10">
+            <Button x:Name="browseBookingsButton"
+                    Text="Browse bookings"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    CornerRadius="25"
+                    Padding="10,5"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnBrowseBookingsClicked"/>
+        </StackLayout>
+
+        <!-- Map Section (occupies available space) -->
+        <maps:Map Grid.Row="1" x:Name="map" VerticalOptions="FillAndExpand"/>
+
+        <!-- Details Section -->
+        <StackLayout Grid.Row="2" Margin="40, 0, 40, 40" Orientation="Vertical">
+            <StackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Name" 
+                           FontAttributes="Bold" 
+                           FontSize="12" 
+                           TextColor="Gray" 
+                           Margin="0, 15, 0, 0"/>
+
+                    <Label x:Name="riderName"
+                           Text="Rider Name"
+                           FontAttributes="Bold" 
+                           FontSize="16" 
+                           TextColor="Black"/>
+                </VerticalStackLayout>
+            </StackLayout>
+
+            <Button x:Name="acceptBookingButton"
+                    Text="Accept"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 10, 0 ,0"
+                    Clicked="OnAcceptClicked"/>
+
+            <Button x:Name="openChatButton"
+                    Text="Chat Rider"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 10, 0 ,0"
+                    IsVisible="False"
+                    Clicked="OnOpenChatClicked"/>
+
+            <Button x:Name="pickedUpButton"
+                    Text="Rider Picked Up"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 10, 0 ,0"
+                    IsVisible="False"
+                    Clicked="OnPickedUpClicked"/>
+
+            <Button x:Name="droppedOffButton"
+                    Text="Rider Dropped Off"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 10, 0 ,0"
+                    IsVisible="False"
+                    Clicked="OnDroppedOffClicked"/>
+        </StackLayout>
+
+        <Frame x:Name="ChatFrame"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               BorderColor="Transparent"
+               BackgroundColor="White" 
+               IsVisible="False">
+            <VerticalStackLayout VerticalOptions="FillAndExpand">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Chat with Rider"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           VerticalOptions="Center"/>
+
+                    <Button x:Name="CloseButton"
+                            Text="Close Chat"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            BackgroundColor="IndianRed"
+                            TextColor="White" 
+                            Margin="15, 0, 0, 0"
+                            Clicked="OnCloseChatClicked"/>
+                </HorizontalStackLayout>
+                
+                
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <CollectionView ItemsSource="{Binding ChatLog}" 
+                                    SelectionMode="Single" 
+                                    Margin="0, 15, 0, 0"
+                                    x:Name="ChatCollectionView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="{Binding margin}" 
+                                       CornerRadius="10" 
+                                       Padding="15, 10" 
+                                       BackgroundColor="{Binding backgroundColor}"
+                                       BorderColor="Transparent"
+                                       HorizontalOptions="{Binding horizontalOptions}">
+                                    <Label Text="{Binding message}"
+                                           TextColor="{Binding textColor}"
+                                           BackgroundColor="{Binding backgroundColor}"
+                                           HorizontalTextAlignment="{Binding textAlignment}"/>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <HorizontalStackLayout Padding="10" Spacing="5">
+                        <!-- Input field -->
+                        <Entry x:Name="MessageEntry"
+                               Placeholder="Type your message..."
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" 
+                               TextColor="Black"/>
+
+                        <!-- Send button -->
+                        <Button x:Name="SendButton"
+                            Text="Send"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            BackgroundColor="DodgerBlue"
+                            TextColor="White" 
+                            Margin="15, 0, 0, 0"
+                            Clicked="OnSendClicked"/>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

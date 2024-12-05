@@ -71,9 +71,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui.Maps" Version="2.0.4" />
 		<PackageReference Include="FirebaseAdmin" Version="3.1.0" />
 		<PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
-		<PackageReference Include="Mapsui.Maui" Version="4.1.8" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
@@ -83,6 +83,9 @@
 	<ItemGroup>
 	  <Compile Update="DriverAccountsPage.xaml.cs">
 	    <DependentUpon>DriverAccountsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DriverViewTrip.xaml.cs">
+	    <DependentUpon>DriverViewTrip.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="EditDriverPage.xaml.cs">
 	    <DependentUpon>EditDriverPage.xaml</DependentUpon>
@@ -129,7 +132,13 @@
 	  <MauiXaml Update="DriverBookingHistory.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="DriverBrowseBookings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="DriverHomepage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DriverViewTrip.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="DriverProfile.xaml">
@@ -165,6 +174,12 @@
 	  <MauiXaml Update="TransactionHistoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="UserChat.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UserMap.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UserProfileEdit.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -183,6 +198,13 @@
 	  <MauiXaml Update="UserReportPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="WaitingForDriver.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Mapsui\" />
 	</ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace BiyaHero
+﻿using Map = Microsoft.Maui.Controls.Maps.Map;
+
+namespace BiyaHero
 {
     public partial class MainPage : ContentPage
     {
@@ -6,14 +8,15 @@
         {
             InitializeComponent();
 
-            var mapControl = new Mapsui.UI.Maui.MapControl();
-            mapControl.Map?.Layers.Add(Mapsui.Tiling.OpenStreetMap.CreateTileLayer());
-            Content = mapControl;
-
-
-
+            Map map = new Map();
+            Content = map;
         }
 
+
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            DisplayAlert("Welcome", "Page has appeared!", "OK");
+        }
         private async void OnButtonClicked(object sender, EventArgs e)
         {
             // Navigate to the Target Page

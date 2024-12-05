@@ -15,7 +15,6 @@ namespace BiyaHero
         public ObservableCollection<string> Places { get; set; }
         public ObservableCollection<string> PaymentMethods { get; set; }
 
-
         private string _selectedFrom;
         public string SelectedFrom
         {

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiyaHero.WaitingForDriver"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps">
+    <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="White">
+
+        <!-- Buttons Section -->
+        <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" 
+                 Padding="20, 20, 20, 20" 
+                 BackgroundColor="#fbf6f8"
+                 Spacing="10">
+            <Button x:Name="originButton"
+                Text="Origin"
+                BackgroundColor="white"
+                TextColor="black"
+                BorderColor="Gray"
+                BorderWidth="1"
+                CornerRadius="25"
+                Padding="10,5"
+                HorizontalOptions="FillAndExpand"/>
+
+            <Button x:Name="destinationButton"
+                Text="Destination"
+                BackgroundColor="White"
+                TextColor="Black"
+                BorderColor="Gray"
+                BorderWidth="1"
+                CornerRadius="25"
+                Padding="10,5"
+                HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <!-- Map Section (occupies available space) -->
+        <maps:Map Grid.Row="1" x:Name="map" VerticalOptions="FillAndExpand"/>
+
+        <!-- Details Section -->
+        <StackLayout Grid.Row="2" Margin="40, 0, 40, 40" Orientation="Vertical">
+            <StackLayout IsVisible="False">
+                <Label Text="Distance:" TextColor="Black" x:Name="distanceLabel"/>
+                <Label Text="Price:" TextColor="Black" x:Name="priceLabel"/>
+            </StackLayout>
+
+            <Button x:Name="cancelBookingButton"
+                    Text="Cancel"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 15, 0, 0"
+                    Clicked="OnCancelBookingClicked"/>
+
+            <Button x:Name="chatButton"
+                    Text="Chat Driver"
+                    Background="#0f9f72"
+                    TextColor="white"
+                    Margin="0, 15, 0, 0"
+                    IsVisible="False"
+                    Clicked="OnChatClicked"/>      
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

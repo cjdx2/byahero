@@ -1,17 +1,37 @@
 using BiyaHero.Services;
 using BiyaHero.Models;
+using Firebase.Database;
 
 namespace BiyaHero;
 
 public partial class LoginPage : ContentPage
 {
     private readonly DatabaseService _databaseService;
+    FirebaseClient firebaseClient;
 
-    public LoginPage()
-    {
+    public LoginPage() {
         InitializeComponent();
+        firebaseClient = new FirebaseClient("https://biyahero-7d8a3-default-rtdb.firebaseio.com");
         _databaseService = new DatabaseService();
         NavigationPage.SetHasNavigationBar(this, false);
+
+        //Listen();
+    }
+
+    public void Listen() {
+        string id = "5fce0116-5eab-432e-8414-70def31009e6";
+        firebaseClient
+            .Child($"Chats/{id}")
+            .AsObservable<ChatData>()
+            .Subscribe(item => {
+                if (item.Object != null) {
+                    MainThread.BeginInvokeOnMainThread(async () => {
+                        // Add the new chat to the ChatLog collection
+                        var chatData = item.Object as ChatData;
+                        await DisplayAlert("z", chatData.message, "ok");
+                    });
+                }
+            });
     }
 
     private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -47,7 +67,9 @@ public partial class LoginPage : ContentPage
 
         if (user != null && user.Password == password)
         {
+
             UserSession.SaveUserEmail(user.Email); // Save user email in the session
+            UserSession.SaveUserFullName($"{user.FirstName} {user.LastName}");
             await DisplayAlert("Success", "Login successful!", "OK");
             await Navigation.PushAsync(new UserHomePage()); // Navigate to UserHomePage
         }
