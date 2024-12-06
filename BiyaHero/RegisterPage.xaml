@@ -5,8 +5,8 @@
              Background="#13a073">
 
     <!-- Wrap the entire layout in a ScrollView -->
-
-    <VerticalStackLayout
+    <ScrollView>
+        <VerticalStackLayout
             Background="#13a073"
             Padding="0"
             MaximumHeightRequest="1000">
@@ -14,180 +14,181 @@
         <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0,0,0,14"/>
 
 
-        <Frame CornerRadius="50"
-                Background="#fbf6f8"
-                BorderColor="#fbf6f8"
-                Margin="0">
-            <VerticalStackLayout>
-                <Label Text="Create an Account"
-                       Margin="0,10,0,0"
-                       FontSize="30"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Start"
-                       TextColor="#13a073"
-                       />
-                <!-- Input Field for Username -->
-                <Frame HasShadow="False" 
-               BackgroundColor="White" 
-               BorderColor="#abaaaa" 
-               CornerRadius="30" 
-               Padding="5" 
-               Margin="0,20,0,5" 
-               HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_username.png" 
-               WidthRequest="20" 
-               HeightRequest="20" 
-               VerticalOptions="Center" />
-                        <Entry Placeholder="Username" 
-               Margin="10,0,0,0" 
-               x:Name="UsernameEntry" 
-               WidthRequest="250" 
-               BackgroundColor="White" 
-               TextColor="#abaaaa" 
-               VerticalOptions="Center"/>
+            <Frame CornerRadius="50"
+                    Background="#fbf6f8"
+                    BorderColor="#fbf6f8"
+                    Margin="0">
+                <VerticalStackLayout>
+                    <Label Text="Create an Account"
+                           Margin="0,10,0,0"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Start"
+                           TextColor="#13a073"
+                           />
+                    <!-- Input Field for Username -->
+                    <Frame HasShadow="False" 
+                   BackgroundColor="White" 
+                   BorderColor="#abaaaa" 
+                   CornerRadius="30" 
+                   Padding="5" 
+                   Margin="0,20,0,5" 
+                   HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_username.png" 
+                   WidthRequest="20" 
+                   HeightRequest="20" 
+                   VerticalOptions="Center" />
+                            <Entry Placeholder="Username" 
+                   Margin="10,0,0,0" 
+                   x:Name="UsernameEntry" 
+                   WidthRequest="250" 
+                   BackgroundColor="White" 
+                   TextColor="#abaaaa" 
+                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Input Field for First Name -->
+                    <Frame HasShadow="False" 
+                    BackgroundColor="White" 
+                    BorderColor="#abaaaa" 
+                    CornerRadius="30" 
+                    Padding="5" 
+                    Margin="0,0,0,5" 
+                    HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_write.png" 
+                    WidthRequest="20" 
+                    HeightRequest="20" 
+                    VerticalOptions="Center" />
+                            <Entry Placeholder="First Name" 
+                    Margin="10,0,0,0" 
+                    x:Name="FnameEntry" 
+                    WidthRequest="250" 
+                    BackgroundColor="White" 
+                    TextColor="#abaaaa" 
+                    VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Input Field for Last Name -->
+                    <Frame HasShadow="False" 
+                    BackgroundColor="White" 
+                    BorderColor="#abaaaa" 
+                    CornerRadius="30" 
+                    Padding="5" 
+                    Margin="0,0,0,5" 
+                    HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_write.png" 
+                    WidthRequest="20" 
+                    HeightRequest="20" 
+                    VerticalOptions="Center" />
+                            <Entry Placeholder="Last Name" 
+                    Margin="10,0,0,0" 
+                    x:Name="LnameEntry" 
+                    WidthRequest="250" 
+                    BackgroundColor="White" 
+                    TextColor="#abaaaa" 
+                    VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Input Field for Email -->
+                    <Frame HasShadow="False" 
+                    BackgroundColor="White" 
+                    BorderColor="#abaaaa" 
+                    CornerRadius="30" 
+                    Padding="5" 
+                    Margin="0,0,0,5" 
+                    HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_mail.png" 
+                    WidthRequest="20" 
+                    HeightRequest="20" 
+                    VerticalOptions="Center" />
+                            <Entry Placeholder="Email" 
+                    Margin="10,0,0,0" 
+                    x:Name="EmailEntry" 
+                    WidthRequest="250" 
+                    BackgroundColor="White" 
+                    TextColor="#abaaaa" 
+                    VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Input Field for Password -->
+                    <Frame HasShadow="False" 
+                    BackgroundColor="White" 
+                    BorderColor="#abaaaa" 
+                    CornerRadius="30" 
+                    Padding="5" 
+                    Margin="0,0,0,5" 
+                    HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_lock.png" 
+                    WidthRequest="20" 
+                    HeightRequest="20" 
+                    VerticalOptions="Center" />
+                            <Entry Placeholder="Password" 
+                    Margin="10,0,0,0" 
+                    x:Name="PasswordEntry" 
+                    WidthRequest="250" 
+                    BackgroundColor="White" 
+                    TextColor="#abaaaa" 
+                    VerticalOptions="Center"
+                    IsPassword="True"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Input Field for Confirm Password -->
+                    <Frame HasShadow="False" 
+                    BackgroundColor="White" 
+                    BorderColor="#abaaaa" 
+                    CornerRadius="30" 
+                    Padding="5" 
+                    Margin="0,0,0,5" 
+                    HeightRequest="50">
+                        <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                            <Image Source="logo_lock.png" 
+                    WidthRequest="20" 
+                    HeightRequest="20" 
+                    VerticalOptions="Center" />
+                            <Entry Placeholder="Confirm Password" 
+                    Margin="10,0,0,0" 
+                    x:Name="CPasswordEntry" 
+                    WidthRequest="250" 
+                    BackgroundColor="White" 
+                    TextColor="#abaaaa" 
+                    VerticalOptions="Center"
+                    IsPassword="True"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+
+
+                    <!-- Terms and Conditions Checkbox -->
+                    <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                        <CheckBox x:Name="AgreeCheckBox" 
+                              Color="#abaaaa"
+                              IsChecked="False" />
+                        <Label Text="I agree to the terms and conditions."
+                           TextColor="#abaaaa"
+                           VerticalOptions="Center" />
                     </HorizontalStackLayout>
-                </Frame>
 
-                <!-- Input Field for First Name -->
-                <Frame HasShadow="False" 
-                BackgroundColor="White" 
-                BorderColor="#abaaaa" 
-                CornerRadius="30" 
-                Padding="5" 
-                Margin="0,0,0,5" 
-                HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_write.png" 
-                WidthRequest="20" 
-                HeightRequest="20" 
-                VerticalOptions="Center" />
-                        <Entry Placeholder="First Name" 
-                Margin="10,0,0,0" 
-                x:Name="FnameEntry" 
-                WidthRequest="250" 
-                BackgroundColor="White" 
-                TextColor="#abaaaa" 
-                VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
-                </Frame>
+                    <!-- Sign Up Button -->
+                    <Button Text="Sign Up" 
+                            Margin="0,10,0,50"
+                            HorizontalOptions="Fill"   
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="#13a073"
+                            Clicked="OnSignUpClicked"
+                            CornerRadius="30"/>
 
-                <!-- Input Field for Last Name -->
-                <Frame HasShadow="False" 
-                BackgroundColor="White" 
-                BorderColor="#abaaaa" 
-                CornerRadius="30" 
-                Padding="5" 
-                Margin="0,0,0,5" 
-                HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_write.png" 
-                WidthRequest="20" 
-                HeightRequest="20" 
-                VerticalOptions="Center" />
-                        <Entry Placeholder="Last Name" 
-                Margin="10,0,0,0" 
-                x:Name="LnameEntry" 
-                WidthRequest="250" 
-                BackgroundColor="White" 
-                TextColor="#abaaaa" 
-                VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
-                </Frame>
-
-                <!-- Input Field for Email -->
-                <Frame HasShadow="False" 
-                BackgroundColor="White" 
-                BorderColor="#abaaaa" 
-                CornerRadius="30" 
-                Padding="5" 
-                Margin="0,0,0,5" 
-                HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_mail.png" 
-                WidthRequest="20" 
-                HeightRequest="20" 
-                VerticalOptions="Center" />
-                        <Entry Placeholder="Email" 
-                Margin="10,0,0,0" 
-                x:Name="EmailEntry" 
-                WidthRequest="250" 
-                BackgroundColor="White" 
-                TextColor="#abaaaa" 
-                VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
-                </Frame>
-
-                <!-- Input Field for Password -->
-                <Frame HasShadow="False" 
-                BackgroundColor="White" 
-                BorderColor="#abaaaa" 
-                CornerRadius="30" 
-                Padding="5" 
-                Margin="0,0,0,5" 
-                HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_lock.png" 
-                WidthRequest="20" 
-                HeightRequest="20" 
-                VerticalOptions="Center" />
-                        <Entry Placeholder="Password" 
-                Margin="10,0,0,0" 
-                x:Name="PasswordEntry" 
-                WidthRequest="250" 
-                BackgroundColor="White" 
-                TextColor="#abaaaa" 
-                VerticalOptions="Center"
-                IsPassword="True"/>
-                    </HorizontalStackLayout>
-                </Frame>
-
-                <!-- Input Field for Confirm Password -->
-                <Frame HasShadow="False" 
-                BackgroundColor="White" 
-                BorderColor="#abaaaa" 
-                CornerRadius="30" 
-                Padding="5" 
-                Margin="0,0,0,5" 
-                HeightRequest="50">
-                    <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                        <Image Source="logo_lock.png" 
-                WidthRequest="20" 
-                HeightRequest="20" 
-                VerticalOptions="Center" />
-                        <Entry Placeholder="Confirm Password" 
-                Margin="10,0,0,0" 
-                x:Name="CPasswordEntry" 
-                WidthRequest="250" 
-                BackgroundColor="White" 
-                TextColor="#abaaaa" 
-                VerticalOptions="Center"
-                IsPassword="True"/>
-                    </HorizontalStackLayout>
-                </Frame>
-
-
-                <!-- Terms and Conditions Checkbox -->
-                <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
-                    <CheckBox x:Name="AgreeCheckBox" 
-                          Color="#abaaaa"
-                          IsChecked="False" />
-                    <Label Text="I agree to the terms and conditions."
-                       TextColor="#abaaaa"
-                       VerticalOptions="Center" />
-                </HorizontalStackLayout>
-
-                <!-- Sign Up Button -->
-                <Button Text="Sign Up" 
-                        Margin="0,10,0,50"
-                        HorizontalOptions="Fill"   
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        BackgroundColor="#13a073"
-                        Clicked="OnSignUpClicked"
-                        CornerRadius="30"/>
-
-            </VerticalStackLayout>
-        </Frame>
-    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

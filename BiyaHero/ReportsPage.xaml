@@ -3,87 +3,114 @@
              x:Class="BiyaHero.ReportsPage"
              BackgroundColor="#0c7151">
 
-    <StackLayout Padding="10">
-        <Label Text="User and Driver Reports"
-               FontSize="Medium"
-               HorizontalOptions="CenterAndExpand"
-               TextColor="White"
-               Margin="0,20,0,20"/>
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="20">
+            <!-- Main Title -->
+            <Label Text="User and Driver Reports"
+                   FontSize="Large"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="#084934"
+                   Margin="0,20,0,20" />
 
-        <!-- Reports Section for Pending -->
-        <Label Text="Pending Reports" FontAttributes="Bold" FontSize="Medium" Margin="0,10,0,5"/>
-        <ListView x:Name="PendingReportsListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
-                            <StackLayout>
-                                <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934"/>
-                                <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999"/>
-                                <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777"/>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="10">
-                                    <Button Text="Resolved"
-                                    BackgroundColor="#4CAF50"
-                                    TextColor="White"
-                                    Command="{Binding ResolveCommand}"
-                                    CommandParameter="{Binding .}"/>
-                                    <Button Text="Spam"
-                                    BackgroundColor="#F44336"
-                                    TextColor="White"
-                                    Command="{Binding SpamCommand}"
-                                    CommandParameter="{Binding .}"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <!-- Pending Reports Section -->
+            <Label Text="Pending Reports"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="#084934"
+                   Margin="0,10,0,5" />
+            <Frame BorderColor="#CCC" CornerRadius="5" Padding="10">
+                <ListView x:Name="PendingReportsListView"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding PendingReports}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
+                                    <StackLayout>
+                                        <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934" />
+                                        <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999" />
+                                        <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777" />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="10">
+                                            <Button Text="Resolved"
+                                                    BackgroundColor="#4CAF50"
+                                                    TextColor="White"
+                                                    Command="{Binding ResolveCommand}"
+                                                    CommandParameter="{Binding .}" />
+                                            <Button Text="Spam"
+                                                    BackgroundColor="#F44336"
+                                                    TextColor="White"
+                                                    Command="{Binding SpamCommand}"
+                                                    CommandParameter="{Binding .}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
 
-        <!-- Resolved Reports Section -->
-        <Label Text="Resolved Reports" FontAttributes="Bold" FontSize="Medium" Margin="0,10,0,5"/>
-        <ListView x:Name="ResolvedReportsListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
-                            <StackLayout>
-                                <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934"/>
-                                <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999"/>
-                                <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777"/>
-                            </StackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer
-                        Command="{Binding ViewDetailsCommand}"
-                        CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <!-- Resolved Reports Section -->
+            <Label Text="Resolved Reports"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="#084934"
+                   Margin="0,10,0,5" />
+            <Frame BorderColor="#CCC" CornerRadius="5" Padding="10">
+                <ListView x:Name="ResolvedReportsListView"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding ResolvedReports}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
+                                    <StackLayout>
+                                        <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934" />
+                                        <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999" />
+                                        <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777" />
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding ViewDetailsCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
 
-        <!-- Spam Reports Section -->
-        <Label Text="Spam Reports" FontAttributes="Bold" FontSize="Medium" Margin="0,10,0,5"/>
-        <ListView x:Name="SpamReportsListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
-                            <StackLayout>
-                                <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934"/>
-                                <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999"/>
-                                <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777"/>
-                            </StackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer
-                        Command="{Binding ViewDetailsCommand}"
-                        CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+            <!-- Spam Reports Section -->
+            <Label Text="Spam Reports"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="#084934"
+                   Margin="0,10,0,5" />
+            <Frame BorderColor="#CCC" CornerRadius="5" Padding="10">
+                <ListView x:Name="SpamReportsListView"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding SpamReports}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="#CCC" Padding="10" Margin="0,5">
+                                    <StackLayout>
+                                        <Label Text="{Binding ReportTitle}" FontSize="Medium" TextColor="#084934" />
+                                        <Label Text="{Binding ReportType}" FontSize="Small" TextColor="#999999" />
+                                        <Label Text="{Binding ReportDate}" FontSize="Small" TextColor="#777777" />
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding ViewDetailsCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

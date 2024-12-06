@@ -4,131 +4,132 @@
              x:Class="BiyaHero.LoginPage" 
              Title=""
              Background="#13a073">
+    <ScrollView>
+        <VerticalStackLayout
+            Background="#13a073"
+            Padding="0"
+            MaximumHeightRequest="800">
 
-    <VerticalStackLayout
-        Background="#13a073"
-        Padding="0"
-        MaximumHeightRequest="800">
-
-        <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0,80,0,100"  />
-        <Frame
-            CornerRadius="50"
-            Background="#fbf6f8"
-            BorderColor="#fbf6f8">
+            <Image Source="logo_biyahero_full.png" WidthRequest="200" HeightRequest="200" Margin="0,80,0,100"  />
+            <Frame
+                CornerRadius="50"
+                Background="#fbf6f8"
+                BorderColor="#fbf6f8">
             
         
-        <VerticalStackLayout
-            Background="#fbf6f8"
-            HeightRequest="600"
-            Padding="10">
+            <VerticalStackLayout
+                Background="#fbf6f8"
+                HeightRequest="600"
+                Padding="10">
 
-               <Label TextColor="#13a073"
-                      FontSize="30"
-                      FontAttributes="Bold"
+                   <Label TextColor="#13a073"
+                          FontSize="30"
+                          FontAttributes="Bold"
                    
-                   >Login
+                       >Login
                
-               </Label>
-        <!-- Input Field for Email -->
-        <Frame HasShadow="False" 
-               BackgroundColor="White" 
-               BorderColor="#abaaaa" 
-               CornerRadius="30" 
-               Padding="5" 
-               Margin="0,20,0,5" 
-               HeightRequest="50">
-            <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
-                <Image Source="logo_mail.png" 
-                       WidthRequest="20" 
-                       HeightRequest="20" 
-                       VerticalOptions="Center" />
-                <Entry Placeholder="Enter your email" 
-                       Margin="10,0,0,0" 
-                       x:Name="EmailEntry" 
-                       WidthRequest="250" 
-                       BackgroundColor="White" 
-                       TextColor="Black" 
-                       VerticalOptions="Center"/>
-            </HorizontalStackLayout>
-        </Frame>
+                   </Label>
+            <!-- Input Field for Email -->
+            <Frame HasShadow="False" 
+                   BackgroundColor="White" 
+                   BorderColor="#abaaaa" 
+                   CornerRadius="30" 
+                   Padding="5" 
+                   Margin="0,20,0,5" 
+                   HeightRequest="50">
+                <HorizontalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                    <Image Source="logo_mail.png" 
+                           WidthRequest="20" 
+                           HeightRequest="20" 
+                           VerticalOptions="Center" />
+                    <Entry Placeholder="Enter your email" 
+                           Margin="10,0,0,0" 
+                           x:Name="EmailEntry" 
+                           WidthRequest="250" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
 
 
-        <!-- Input Field for Password -->
-        <Frame HasShadow="False" 
-               BackgroundColor="White" 
-               BorderColor="#abaaaa" 
-               HeightRequest="50" 
-               CornerRadius="30" 
-               Padding="5" 
-               Margin="0,0,0,20">
-            <HorizontalStackLayout Margin="10,0,10,0" VerticalOptions="Center">
-                <Image Source="logo_lock.png" 
-                       WidthRequest="20" 
-                       HeightRequest="20" 
-                       VerticalOptions="Center"/>
-                <Entry Placeholder="Enter your password" 
-                       Margin="10,0,0,0" 
-                       x:Name="PasswordEntry" 
-                       WidthRequest="250" 
-                       BackgroundColor="White" 
-                       TextColor="Black" 
-                       IsPassword="True" 
-                       VerticalOptions="Center"/>
-            </HorizontalStackLayout>
-        </Frame>
+            <!-- Input Field for Password -->
+            <Frame HasShadow="False" 
+                   BackgroundColor="White" 
+                   BorderColor="#abaaaa" 
+                   HeightRequest="50" 
+                   CornerRadius="30" 
+                   Padding="5" 
+                   Margin="0,0,0,20">
+                <HorizontalStackLayout Margin="10,0,10,0" VerticalOptions="Center">
+                    <Image Source="logo_lock.png" 
+                           WidthRequest="20" 
+                           HeightRequest="20" 
+                           VerticalOptions="Center"/>
+                    <Entry Placeholder="Enter your password" 
+                           Margin="10,0,0,0" 
+                           x:Name="PasswordEntry" 
+                           WidthRequest="250" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           IsPassword="True" 
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
 
 
-        <!-- Button to Login -->
-        <Button Text="Login" 
-                Margin="0,10,0,10"
-                HorizontalOptions="Fill"   
-                FontAttributes="Bold"
-                TextColor="White"
-                BackgroundColor="#13a073"
-                Clicked="OnLoginButtonClicked"
-                CornerRadius="30"/>
-                <Grid ColumnSpacing="10" VerticalOptions="Center" Margin="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <!-- Fills available space -->
-                        <ColumnDefinition Width="Auto" />
-                        <!-- Fits content -->
-                        <ColumnDefinition Width="*" />
-                        <!-- Fills available space -->
-                    </Grid.ColumnDefinitions>
-
-                    <!-- First Line -->
-                    <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
-
-                    <!-- Label -->
-                    <Label Grid.Column="1" Text="OR" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" TextColor="#abaaaa" />
-
-                    <!-- Second Line -->
-                    <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
-                </Grid>
-
-                <!-- Button to Register Page -->
-        <Button Text="Create an Account" 
-        Margin="0,10,0,0"
-        HorizontalOptions="Fill"   
-        FontAttributes="Bold"
-        TextColor="#13a073"
-        BackgroundColor="Transparent"
-        Clicked="OnRegisterButtonClicked"
-        CornerRadius="30"
-        BorderColor="#abaaaa"
-        BorderWidth="1"/>
-
-            <!-- Link to Forgot Password -->
-            <HorizontalStackLayout Margin="0,0,0,20" HorizontalOptions="Center">
-                <Button Text="Forgot Password?" 
+            <!-- Button to Login -->
+            <Button Text="Login" 
+                    Margin="0,10,0,10"
+                    HorizontalOptions="Fill"   
                     FontAttributes="Bold"
-                    Padding="0"
-                    TextColor="#abaaaa"
-                    BackgroundColor="Transparent"
-                    Clicked="OnForgotButtonClicked"/>
-        </HorizontalStackLayout>
+                    TextColor="White"
+                    BackgroundColor="#13a073"
+                    Clicked="OnLoginButtonClicked"
+                    CornerRadius="30"/>
+                    <Grid ColumnSpacing="10" VerticalOptions="Center" Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <!-- Fills available space -->
+                            <ColumnDefinition Width="Auto" />
+                            <!-- Fits content -->
+                            <ColumnDefinition Width="*" />
+                            <!-- Fills available space -->
+                        </Grid.ColumnDefinitions>
+
+                        <!-- First Line -->
+                        <BoxView Grid.Column="0" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
+
+                        <!-- Label -->
+                        <Label Grid.Column="1" Text="OR" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" TextColor="#abaaaa" />
+
+                        <!-- Second Line -->
+                        <BoxView Grid.Column="2" HeightRequest="1" BackgroundColor="#abaaaa" VerticalOptions="Center" />
+                    </Grid>
+
+                    <!-- Button to Register Page -->
+            <Button Text="Create an Account" 
+            Margin="0,10,0,0"
+            HorizontalOptions="Fill"   
+            FontAttributes="Bold"
+            TextColor="#13a073"
+            BackgroundColor="Transparent"
+            Clicked="OnRegisterButtonClicked"
+            CornerRadius="30"
+            BorderColor="#abaaaa"
+            BorderWidth="1"/>
+
+                <!-- Link to Forgot Password -->
+                <HorizontalStackLayout Margin="0,0,0,20" HorizontalOptions="Center">
+                    <Button Text="Forgot Password?" 
+                        FontAttributes="Bold"
+                        Padding="0"
+                        TextColor="#abaaaa"
+                        BackgroundColor="Transparent"
+                        Clicked="OnForgotButtonClicked"/>
+            </HorizontalStackLayout>
+            </VerticalStackLayout>
+            </Frame>
         </VerticalStackLayout>
-        </Frame>
-    </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
