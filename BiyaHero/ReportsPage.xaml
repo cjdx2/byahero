@@ -1,13 +1,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BiyaHero.ReportsPage"
-             BackgroundColor="#F5F5F5">
+             BackgroundColor="#0c7151">
 
     <StackLayout Padding="10">
         <Label Text="User and Driver Reports"
                FontSize="Medium"
                HorizontalOptions="CenterAndExpand"
-               TextColor="#084934"
+               TextColor="White"
                Margin="0,20,0,20"/>
 
         <!-- Reports Section for Pending -->
